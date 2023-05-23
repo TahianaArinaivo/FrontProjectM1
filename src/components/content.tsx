@@ -5,7 +5,7 @@ import Home from "./DashBoard/DashBoard";
 import Domain from "../components/domain";
 import User from "../components/user";
 import Stats from "../components/stats";
-import List from './list';
+import List from './List/list';
 
 const drawerWidth = 220;
 

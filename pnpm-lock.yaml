@@ -7,6 +7,8 @@ specifiers:
   '@mui/icons-material': ^5.11.9
   '@mui/joy': 5.0.0-alpha.68
   '@mui/material': ^5.11.10
+  '@mui/utils': ^5.11.13
+  '@mui/x-data-grid': ^6.0.2
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
   '@types/react-typical': ^0.1.0
@@ -27,6 +29,8 @@ dependencies:
   '@mui/icons-material': 5.11.9_ylmaxqh5wvme7ymgn4ys5vax6u
   '@mui/joy': 5.0.0-alpha.68_xqeqsl5kvjjtyxwyi3jhw3yuli
   '@mui/material': 5.11.10_xqeqsl5kvjjtyxwyi3jhw3yuli
+  '@mui/utils': 5.11.13_react@18.2.0
+  '@mui/x-data-grid': 6.0.2_fn4ukn7njhq3j6rnouvyofvwm4
   '@types/react-typical': 0.1.0
   prop-types: 15.8.1
   react: 18.2.0
@@ -647,7 +651,7 @@ packages:
       '@babel/runtime': 7.21.0
       '@emotion/is-prop-valid': 1.2.0
       '@mui/types': 7.2.3_@types+react@18.0.28
-      '@mui/utils': 5.11.9_react@18.2.0
+      '@mui/utils': 5.11.13_react@18.2.0
       '@popperjs/core': 2.11.6
       '@types/react': 18.0.28
       clsx: 1.2.1
@@ -702,7 +706,7 @@ packages:
       '@mui/core-downloads-tracker': 5.11.9
       '@mui/system': 5.11.9_d2lgyfpecxdc2bsiwyag5wf7ti
       '@mui/types': 7.2.3_@types+react@18.0.28
-      '@mui/utils': 5.11.9_react@18.2.0
+      '@mui/utils': 5.11.13_react@18.2.0
       '@types/react': 18.0.28
       clsx: 1.2.1
       csstype: 3.1.1
@@ -736,7 +740,7 @@ packages:
       '@mui/core-downloads-tracker': 5.11.9
       '@mui/system': 5.11.9_d2lgyfpecxdc2bsiwyag5wf7ti
       '@mui/types': 7.2.3_@types+react@18.0.28
-      '@mui/utils': 5.11.9_react@18.2.0
+      '@mui/utils': 5.11.13_react@18.2.0
       '@types/react': 18.0.28
       '@types/react-transition-group': 4.4.5
       clsx: 1.2.1
@@ -759,7 +763,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.21.0
-      '@mui/utils': 5.11.9_react@18.2.0
+      '@mui/utils': 5.11.13_react@18.2.0
       '@types/react': 18.0.28
       prop-types: 15.8.1
       react: 18.2.0
@@ -809,7 +813,7 @@ packages:
       '@mui/private-theming': 5.11.9_pmekkgnqduwlme35zpnqhenc34
       '@mui/styled-engine': 5.11.9_xqp3pgpqjlfxxa3zxu4zoc4fba
       '@mui/types': 7.2.3_@types+react@18.0.28
-      '@mui/utils': 5.11.9_react@18.2.0
+      '@mui/utils': 5.11.13_react@18.2.0
       '@types/react': 18.0.28
       clsx: 1.2.1
       csstype: 3.1.1
@@ -828,8 +832,8 @@ packages:
       '@types/react': 18.0.28
     dev: false
 
-  /@mui/utils/5.11.9_react@18.2.0:
-    resolution: {integrity: sha512-eOJaqzcEs4qEwolcvFAmXGpln+uvouvOS9FUX6Wkrte+4I8rZbjODOBDVNlK+V6/ziTfD4iNKC0G+KfOTApbqg==}
+  /@mui/utils/5.11.13_react@18.2.0:
+    resolution: {integrity: sha512-5ltA58MM9euOuUcnvwFJqpLdEugc9XFsRR8Gt4zZNb31XzMfSKJPR4eumulyhsOTK1rWf7K4D63NKFPfX0AxqA==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0
@@ -840,6 +844,25 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-is: 18.2.0
+    dev: false
+
+  /@mui/x-data-grid/6.0.2_fn4ukn7njhq3j6rnouvyofvwm4:
+    resolution: {integrity: sha512-VCr1hvW5k1zekovTvyB0PxfGGTueAgemkcaFZPDKJP0uTCAyJ69f+vyz9OzDJzbpb58U2onis4tQJETkHnyofg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.4.1
+      '@mui/system': ^5.4.1
+      react: ^17.0.2 || ^18.0.0
+      react-dom: ^17.0.2 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.21.0
+      '@mui/material': 5.11.10_xqeqsl5kvjjtyxwyi3jhw3yuli
+      '@mui/utils': 5.11.13_react@18.2.0
+      clsx: 1.2.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      reselect: 4.1.7
     dev: false
 
   /@popperjs/core/2.11.6:
@@ -1533,6 +1556,10 @@ packages:
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
+    dev: false
+
+  /reselect/4.1.7:
+    resolution: {integrity: sha512-Zu1xbUt3/OPwsXL46hvOOoQrap2azE7ZQbokq61BQfiXvhewsKDwhMeZjTX9sX0nvw1t/U5Audyn1I9P/m9z0A==}
     dev: false
 
   /resolve-from/4.0.0:
