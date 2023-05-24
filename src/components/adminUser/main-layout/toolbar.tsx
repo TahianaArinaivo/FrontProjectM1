@@ -15,9 +15,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
-import { Bell as BellIcon } from "../icons/bell";
-import { UserCircle as UserCircleIcon } from "../icons/user-circle";
-import { Users as UsersIcon } from "../icons/users";
+import { Bell as BellIcon } from "../../../icons/bell";
+import { UserCircle as UserCircleIcon } from "../../../icons/user-circle";
+import { Users as UsersIcon } from "../../../icons/users";
 import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificationsOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
@@ -108,13 +108,13 @@ export const ToolBar = () => {
           </Typography>
           {LIST_NOTIF.map((item, i) => {
             return (
-              <><MenuItem
+              <Box key={i} ><MenuItem
                 sx={{
                   display: "block",
                   flexDirection: "column",
                   alignItems: "left",
                 }}
-                key={i}
+                
                 onClick={handleClose}
               >
                 <Typography
@@ -150,7 +150,7 @@ export const ToolBar = () => {
                   {item.date}
                 </Typography>
               </MenuItem>
-              <Divider/></>
+              <Divider/></Box>
             );
           })}
         </Box>

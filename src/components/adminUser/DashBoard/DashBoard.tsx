@@ -34,10 +34,9 @@ export default function Home() {
             }}
           >
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-              <Grid container>
-                <Grid xs={12}>
+              
                 <Deposits />
-                {/* Chart */}               
+
                   <Paper
                     sx={{
                       p: 2,
@@ -47,18 +46,15 @@ export default function Home() {
                     }}
                   >
                     <Chart />
-                  </Paper>
                   
+                  </Paper>
 
-                {/* Recent Orders */}
-                  <Paper
+
+                    <Paper
                     sx={{ p: 2, display: "flex", flexDirection: "column" }}
                   >
                     <Orders />
                   </Paper>
-
-                </Grid>
-              </Grid>
 
             </Container>
           </Box>

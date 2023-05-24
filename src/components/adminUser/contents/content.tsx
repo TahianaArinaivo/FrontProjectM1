@@ -1,11 +1,11 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter,useNavigate } from "react-router-dom";
 import { Box } from '@mui/material';
-import Home from "./DashBoard/DashBoard";
-import Domain from "../components/domain";
-import User from "../components/user";
-import Stats from "../components/stats";
-import List from './list';
+import Home from "../DashBoard/DashBoard";
+import Domain from "../domain/domain";
+import User from "../user/user";
+import Stats from "../stats/stats";
+import List from '../list/list';
 
 const drawerWidth = 220;
 

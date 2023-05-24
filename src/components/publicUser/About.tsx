@@ -6,80 +6,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-interface Props {
-  title:string;
-  descriptio:string;
-  image:string
-}
+import { LISTE_PROPS } from './constants/constantAbout';
+import { LIST_IMG } from './constants/constantImg';
 
-interface PropsImg {
-  alt:string;
-  img:string;
-}
 
 export default function About() {
-
-  const LISTE_PROPS: Props[] = [
-    {
-      title:"Lorem ipsum dolor sit amet",
-      descriptio:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non dignissimos nemo, id qui nulla necessitatibus error odio delectus eaque laborum nisi ipsam iste explicabo quae neque atque rem sint beatae?",
-      image:"/recensement.png"
-    },  
-    {
-      title:"Lorem ipsum dolor sit amet",
-      descriptio:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non dignissimos nemo, id qui nulla necessitatibus error odio delectus eaque laborum nisi ipsam iste explicabo quae neque atque rem sint beatae?",
-      image:"/cin.jpg"
-    }, 
-    {
-      title:"Lorem ipsum dolor sit amet",
-      descriptio:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non dignissimos nemo, id qui nulla necessitatibus error odio delectus eaque laborum nisi ipsam iste explicabo quae neque atque rem sint beatae?",
-      image:"/vote.jpg"
-    }, 
-  ];
-
-
-  const LIST_IMG: PropsImg[] = [
-    {
-      alt:"string",
-      img:"/image/1.jpg",
-    },
-    {
-      alt:"string",
-      img:"/image/2.jpg",
-    },
-    {
-      alt:"string",
-      img:"/image/3.png",
-    },
-    {
-      alt:"string",
-      img:"/image/4.jpg",
-    },
-    {
-      alt:"string",
-      img:"/image/5.jfif",
-    },
-    {
-      alt:"string",
-      img:"/image/6.jfif",
-    },
-    {
-      alt:"string",
-      img:"/image/7.jfif",
-    },
-    {
-      alt:"string",
-      img:"/image/8.jfif",
-    },
-    {
-      alt:"string",
-      img:"/image/9.png",
-    },
-    {
-      alt:"string",
-      img:"/image/10.png",
-    },
-  ];
 
   return (
     <div id='about'>

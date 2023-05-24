@@ -37,7 +37,7 @@ import {
 } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 
-import Content from "../components/content";
+import Content from "../contents/content";
 import { ToolBar } from "./toolbar";
 
 const drawerWidth = 220;
@@ -79,7 +79,7 @@ export default function SideNav(props: Props) {
     },
     {
       link: "/admin/domain",
-      title: "Domaine",
+      title: "Eléction",
       icon: <DomainVerificationOutlinedIcon />,
     },
     {
