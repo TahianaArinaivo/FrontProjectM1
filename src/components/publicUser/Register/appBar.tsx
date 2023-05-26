@@ -31,7 +31,7 @@ function AppBarRegister() {
             >
               CINDA
             </Typography>
-            <IconButton onClick={() => navigate("/utilisateur")} edge="start" color="inherit" aria-label="close">
+            <IconButton onClick={() => navigate("/")} edge="start" color="inherit" aria-label="close">
               <CancelIcon />
             </IconButton>
           </Toolbar>

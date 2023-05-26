@@ -9,17 +9,17 @@ import ImageUpload from "./imageUpload";
 function Step1() {
   return (
     <>
-         <Box sx={{ width: "98%" }}>
+         <Box sx={{ width: "98%"}}>
           <Grid
             container
             rowSpacing={0}
             columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           >
             <Grid xs={6}>
-              <Typography variant="h4" sx={{ marginBottom: "1rem",margin:"1rem" }}>
+              <Typography variant="h6" sx={{ marginBottom: "1rem",margin:"1rem" }}>
                 Lorem ipsum, dolor sit amet consectetur
               </Typography>
-              <Typography sx={{margin:"1rem"}}>
+              <Typography sx={{margin:"1rem", fontSize:"12px"}}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
               aliquid sed inventore neque a quibusdam rem debitis nam maxime
               natus velit saepe aspernatur est molestiae, error vero suscipit
@@ -72,7 +72,7 @@ function Step1() {
                   boxShadow:
                     "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset",
                   marginTop: 1,
-                  height: "100%",
+                  height: "80%",
                   borderRadius: "5%",
                 }}
               ></Box>

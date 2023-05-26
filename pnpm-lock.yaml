@@ -22,6 +22,7 @@ specifiers:
   react-dom: ^18.2.0
   react-dropzone-uploader: ^2.11.0
   react-perfect-scrollbar: ^1.5.8
+  react-pro-sidebar: 1.1.0-alpha.1
   react-query: ^3.39.3
   react-router-dom: ^6.8.2
   react-typical: ^0.1.3
@@ -49,6 +50,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-dropzone-uploader: 2.11.0_v2m5e27vhdewzwhryxwfaorcca
   react-perfect-scrollbar: 1.5.8_biqbaboplfbrettd7655fr4n2y
+  react-pro-sidebar: 1.1.0-alpha.1_zula6vjvt3wdocc4mwcxqa6nzi
   react-query: 3.39.3_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
   react-typical: 0.1.3_v2m5e27vhdewzwhryxwfaorcca
@@ -1657,6 +1659,22 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-pro-sidebar/1.1.0-alpha.1_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-kIo4p3gHIdxqANG2KXv7V8KXDmDFsRhk23AGLbXsicCV39k32EP3Os2DXyOj9S6UCDYB+4G3WoeJFiMIkkHe0w==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@emotion/react': 11.10.6_pmekkgnqduwlme35zpnqhenc34
+      '@emotion/styled': 11.10.6_oouaibmszuch5k64ms7uxp2aia
+      '@popperjs/core': 2.11.6
+      classnames: 2.3.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - '@types/react'
     dev: false
 
   /react-query/3.39.3_biqbaboplfbrettd7655fr4n2y:

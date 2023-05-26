@@ -12,27 +12,18 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import SearchIcon from "@mui/icons-material/Search";
-import { Tooltip, useTheme } from "@mui/material";
 import ShowChartOutlinedIcon from "@mui/icons-material/ShowChartOutlined";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import DomainVerificationOutlinedIcon from "@mui/icons-material/DomainVerificationOutlined";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import BallotOutlinedIcon from "@mui/icons-material/BallotOutlined";
 import { Routes, Route, BrowserRouter, useNavigate } from "react-router-dom";
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  TextField,
-} from "@mui/material";
-import InputAdornment from "@mui/material/InputAdornment";
 
-import Content from "../contents/content";
-import { ToolBar } from "./toolbar";
 import { token } from "../../../theme";
+
+//import Content from "../contents/content";
+import { ToolBarPublicUser } from "./ToolBar";
+import { Typography, useTheme } from "@mui/material";
 
 const drawerWidth = 220;
 
@@ -40,7 +31,7 @@ interface Props {
   window?: () => Window;
 }
 
-export default function SideNav(props: Props) {
+export default function SideNavPublicUser(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -50,95 +41,70 @@ export default function SideNav(props: Props) {
 
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const navigate = useNavigate();
 
   const LIST_ITEM = [
     {
-      link: "/admin/",
+      link: "#",
       title: "Tableau de bord",
       icon: <DashboardOutlinedIcon />,
     },
     {
-      link: "/admin/liste",
+      link: "#",
       title: "Liste",
       icon: <BallotOutlinedIcon />,
     },
     {
-      link: "/admin/user",
+      link: "#",
+      title: "Eléction",
+      icon: <DomainVerificationOutlinedIcon />,
+    },
+    {
+      link: "#",
       title: "Utilisateur",
       icon: <AdminPanelSettingsOutlinedIcon />,
     },
     {
-      link: "/admin/stat",
+      link: "#",
       title: "Statistique",
       icon: <ShowChartOutlinedIcon />,
     },
-    {
-      link: "/admin/domain",
-      title: "Residence",
-      icon: <DomainVerificationOutlinedIcon />,
-    },
-    {
-      link: "/admin/domain",
-      title: "Certificat de vie",
-      icon: <DomainVerificationOutlinedIcon />,
-    },
-
   ];
 
+  
   const theme = useTheme();
   const colors = token(theme.palette.mode);
 
   const drawer = (
     <div>
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        ml="25%"
-        mt="20px"
-      >
-        <Typography
-          variant="h5"
-          color={theme.palette.mode === "dark" ? colors.grey[100] : "white"}
-          sx={{fontFamily:"cursive"}}
-        >
-          ADMINIS
-        </Typography>
-      </Box>
+            <Box mb="25px" mt="40px">
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <img
+                  style={{ cursor: "pointer", borderRadius: "50%" }}
+                  alt="user profile"
+                  width={"80"}
+                  height={"80px"}
+                  src="https://avatars.githubusercontent.com/u/62210936?s=400&u=1d1d6b35732fefd1f1731c399d094aa130485089&v=4"
+                />
+              </Box>
+              <Box textAlign="center">
+                <Typography
+                  variant="h2"
+                  color={
+                    theme.palette.mode === "dark" ? colors.grey[100] : "white"
+                  }
+                  fontWeight="bold"
+                  fontSize={"20px"}
+                  sx={{ margin: "5px 0 10px 0" }}
+                >
+                  Nirintsoa
+                </Typography>
+                <Typography variant="h3" color={colors.greenAccent[500]}>
+                CINDIA
+                </Typography>
+              </Box>
+            </Box>
 
-      <Box mb="25px" mt="40px">
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <img
-            style={{ cursor: "pointer", borderRadius: "50%" }}
-            alt="user profile"
-            width={"80"}
-            height={"80px"}
-            src="https://avatars.githubusercontent.com/u/62210936?s=400&u=1d1d6b35732fefd1f1731c399d094aa130485089&v=4"
-          />
-        </Box>
-        <Box textAlign="center">
-          <Typography
-            variant="h2"
-            color={theme.palette.mode === "dark" ? colors.grey[100] : "white"}
-            fontWeight="bold"
-            fontSize={"20px"}
-            sx={{ margin: "5px 0 10px 0" }}
-          >
-            Nirintsoa
-          </Typography>
-          <Typography variant="h3" color={colors.greenAccent[500]}>
-            CINDIA
-          </Typography>
-        </Box>
-      </Box>
 
       <Divider sx={{ color: "#9DA4AE" }} />
 
@@ -218,59 +184,9 @@ export default function SideNav(props: Props) {
             <MenuIcon />
           </IconButton>
 
-          <Tooltip title="Recherche">
-            <IconButton onClick={() => handleClickOpen()} sx={{ ml: 1 }}>
-              <SearchIcon
-                sx={{
-                  fontSize: "30px",
-                }}
-              />
-            </IconButton>
-          </Tooltip>
-
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="search"
-            aria-describedby="search-description"
-          >
-            <DialogTitle id="alert-dialog-title">
-              <Box
-                component="form"
-                sx={{
-                  "& > :not(style)": { m: 1, width: "500px" },
-                }}
-                noValidate
-                autoComplete="off"
-              >
-                <TextField
-                  id="outlined-basic"
-                  label="Recherche"
-                  variant="outlined"
-                  placeholder="recherche..."
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon />
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Box>
-            </DialogTitle>
-            <DialogContent>
-              <DialogContentText id="list list">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed
-                repellendus dicta veniam tempora magni praesentium sapiente
-                doloremque accusantium, et deleniti a expedita. Explicabo vero
-                vel impedit voluptatum soluta odio natus.
-              </DialogContentText>
-            </DialogContent>
-          </Dialog>
-
           <Box sx={{ flexGrow: 1 }} />
 
-          <ToolBar />
+          <ToolBarPublicUser />
         </Toolbar>
       </AppBar>
 
@@ -317,7 +233,7 @@ export default function SideNav(props: Props) {
         component="main"
         sx={{ flexGrow: 1, p: 3, width: `calc(100% - ${drawerWidth}px)` }}
       >
-        <Content />
+        {/*<Content />*/}
       </Box>
     </Box>
   );

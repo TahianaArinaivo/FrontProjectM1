@@ -2,7 +2,6 @@ import * as React from "react";
 import {
   Box,
   FormControl,
-  FormHelperText,
   IconButton,
   InputAdornment,
   InputLabel,
@@ -10,14 +9,8 @@ import {
   Typography,
 } from "@mui/material";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import Typical from "react-typical";
+import { useNavigate } from "react-router-dom";
 
 export default function Authentification() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -28,6 +21,9 @@ export default function Authentification() {
   ) => {
     event.preventDefault();
   };
+
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -75,7 +71,7 @@ export default function Authentification() {
             }
           />
         </FormControl>
-        <Button sx={{width:"200px",marginTop:"1rem", alignSelf:"center"}} variant="outlined"> Se connecter</Button>
+        <Button onClick={() => navigate("/utilisateur/dashboard")} sx={{width:"200px",marginTop:"1rem", alignSelf:"center"}} variant="outlined"> Se connecter</Button>
       </Box>
     </div>
   );

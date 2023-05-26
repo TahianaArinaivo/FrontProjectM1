@@ -3,23 +3,22 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import {
-  AppBar,
   Avatar,
   Badge,
   Box,
   IconButton,
   Toolbar,
   Tooltip,
-  Divider
+  Divider,
+  ListItemIcon,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
-import { Bell as BellIcon } from "../../../icons/bell";
 import { UserCircle as UserCircleIcon } from "../../../icons/user-circle";
-import { Users as UsersIcon } from "../../../icons/users";
-import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificationsOutlined";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import {
+  NotificationsOutlined,
+  Settings,
+  Logout,
+} from "@mui/icons-material";
 
 interface PropsNotif {
   title: string;
@@ -37,6 +36,15 @@ export const ToolBar = () => {
     setAnchorEl(null);
   };
 
+
+  const [anchorElAccount, setAnchorElAccount] = React.useState<null | HTMLElement>(null);
+  const openAccount = Boolean(anchorElAccount);
+  const handleClickAccount = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElAccount(event.currentTarget);
+  };
+  const handleCloseAccount = () => {
+    setAnchorElAccount(null);
+  };
   const LIST_NOTIF: PropsNotif[] = [
     {
       title: "Nouveau CIN",
@@ -65,12 +73,10 @@ export const ToolBar = () => {
     },
   ];
 
-  const length:number = LIST_NOTIF.length;
-
+  const length: number = LIST_NOTIF.length;
 
   return (
     <Toolbar variant="regular">
-
       <Tooltip title="Notifications">
         <IconButton
           sx={{ ml: 2 }}
@@ -81,7 +87,7 @@ export const ToolBar = () => {
           onClick={handleClick}
         >
           <Badge badgeContent={length} color="primary">
-            <CircleNotificationsOutlinedIcon
+            <NotificationsOutlined
               sx={{
                 fontSize: "30px",
               }}
@@ -108,65 +114,119 @@ export const ToolBar = () => {
           </Typography>
           {LIST_NOTIF.map((item, i) => {
             return (
-              <Box key={i} ><MenuItem
-                sx={{
-                  display: "block",
-                  flexDirection: "column",
-                  alignItems: "left",
-                }}
-                
-                onClick={handleClose}
-              >
-                <Typography
+              <Box key={i}>
+                <MenuItem
                   sx={{
-                    fontSize: "0.8rem",
-                    fontWeight: "100",
-                    lineHeight: 1,
-                    fontFamily:"cursive",
+                    display: "block",
+                    flexDirection: "column",
+                    alignItems: "left",
                   }}
+                  onClick={handleClose}
                 >
-                  {item.title}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "0,875rem",
-                    fontWeight: "500",
-                    lineHeight: 1.57,
-                    fontFamily: "initial",
-                    color: "rgb(99, 102, 241)",
-                  }}
-                >
-                  {item.name}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: "12px",
-                    fontWeight: "500",
-                    lineHeight: 1.57,
-                    fontFamily: "initial",
-                    color: "rgb(108, 115, 127)",
-                  }}
-                >
-                  {item.date}
-                </Typography>
-              </MenuItem>
-              <Divider/></Box>
+                  <Typography
+                    sx={{
+                      fontSize: "0.8rem",
+                      fontWeight: "100",
+                      lineHeight: 1,
+                      fontFamily: "cursive",
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "0,875rem",
+                      fontWeight: "500",
+                      lineHeight: 1.57,
+                      fontFamily: "initial",
+                      color: "rgb(99, 102, 241)",
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "12px",
+                      fontWeight: "500",
+                      lineHeight: 1.57,
+                      fontFamily: "initial",
+                      color: "rgb(108, 115, 127)",
+                    }}
+                  >
+                    {item.date}
+                  </Typography>
+                </MenuItem>
+                <Divider />
+              </Box>
             );
           })}
         </Box>
       </Menu>
 
-      <Avatar
+      <Avatar onClick={handleClickAccount}
         sx={{
           cursor: "pointer",
           height: 40,
           width: 40,
           ml: 2,
         }}
-        src=""
+        src="https://avatars.githubusercontent.com/u/62210936?s=400&u=1d1d6b35732fefd1f1731c399d094aa130485089&v=4"
       >
         <UserCircleIcon fontSize="small" />
       </Avatar>
+
+      <Menu
+        anchorEl={anchorElAccount}
+        id="account-menu"
+        open={openAccount}
+        onClose={handleCloseAccount}
+        onClick={handleCloseAccount}
+        PaperProps={{
+          elevation: 0,
+          sx: {
+            overflow: 'visible',
+            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            mt: 1.5,
+            '& .MuiAvatar-root': {
+              width: 32,
+              height: 32,
+              ml: -0.5,
+              mr: 1,
+            },
+            '&:before': {
+              content: '""',
+              display: 'block',
+              position: 'absolute',
+              top: 0,
+              right: 14,
+              width: 10,
+              height: 10,
+              bgcolor: 'background.paper',
+              transform: 'translateY(-50%) rotate(45deg)',
+              zIndex: 0,
+            },
+          },
+        }}
+        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+      >
+        <MenuItem onClick={handleCloseAccount}>
+          <Avatar /> Profile
+        </MenuItem>
+        <Divider />
+        <MenuItem onClick={handleCloseAccount}>
+          <ListItemIcon>
+            <Settings fontSize="small" />
+          </ListItemIcon>
+          Parametre
+        </MenuItem>
+        <MenuItem onClick={handleCloseAccount}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Se deconnecter
+        </MenuItem>
+      </Menu>
     </Toolbar>
   );
 };

@@ -27,6 +27,7 @@
     "react-dom": "^18.2.0",
     "react-dropzone-uploader": "^2.11.0",
     "react-perfect-scrollbar": "^1.5.8",
+    "react-pro-sidebar": "1.1.0-alpha.1",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.8.2",
     "react-typical": "^0.1.3",

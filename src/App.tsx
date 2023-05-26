@@ -12,15 +12,19 @@ import {
   useRecoilValue,
 } from 'recoil';
 import Register from './components/publicUser/Register/register'
+import Dashboard from './components/publicUser/DashBoard/Dashboard'
+import AuthenticationUser from './components/adminUser/Authentification/AuthenticationUser'
 
 function App() {
 
   return (
     <RecoilRoot>
         <Routes>
+          <Route path='/authentication' element={<AuthenticationUser/>}></Route>
           <Route path='/' element={<HomePage/>}></Route>
           <Route path='/utilisateur/*' element={<HomePage/>}></Route>
           <Route path="/utilisateur/register" element={<Register />}></Route>
+          <Route path='/utilisateur/dashboard' element={<Dashboard/>}></Route>
           <Route path='/admin/*' element={<MainLayoutContainer/>}></Route>
         </Routes>
     </RecoilRoot>
