@@ -109,7 +109,7 @@ export default function Footer() {
 
         <Divider sx={{ color: "#9DA4AE" }} />
 
-        <Box>Copyright @copy 2023 DesignByTah</Box>
+        <Box>Copyright @copy 2023 By Sindwai</Box>
       </Box>
     </div>
   );

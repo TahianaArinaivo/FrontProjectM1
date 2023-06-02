@@ -65,17 +65,18 @@ function Step1() {
                 align="center"
                 sx={{ fontFamily: "cursive" }}
               >
-                Résustat de lanalyse
+                Résustat de l'analyse
               </Typography>
               <Box
                 sx={{
                   boxShadow:
                     "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset",
                   marginTop: 1,
-                  height: "80%",
+                  height: "83%",
                   borderRadius: "5%",
                 }}
-              ></Box>
+              >
+              </Box>
             </Grid>
           </Grid>
         </Box>

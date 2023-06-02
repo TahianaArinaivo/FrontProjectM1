@@ -22,8 +22,8 @@ export default function About() {
                 alignItems:"center",
                 flexDirection:"column",
                 paddingTop:"1rem",
-                paddingBottom:"5rem",
                 color:"#f1f1f1",
+                marginTop:"1rem"
             }}>
               <Box sx={{
                 position:"relative",

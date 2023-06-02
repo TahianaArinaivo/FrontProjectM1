@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Dialog } from "@mui/material";
-import homeBg from "./home-bg.png";
+import homeBg from "/home-bg.png";
 import { Button } from "@mui/material";
 import { Typography } from "@mui/material";
 import Slide from "@mui/material/Slide";
@@ -8,6 +8,11 @@ import { TransitionProps } from "@mui/material/transitions";
 import Typical from "react-typical";
 import Authentification from "./authentification/authentification";
 import { useNavigate } from "react-router-dom";
+
+import { styled } from '@mui/material/styles';
+import  { ButtonProps } from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import { cyan, green, lightGreen, purple, teal } from '@mui/material/colors';
 
 
 
@@ -25,6 +30,23 @@ export default function Container() {
 
 
   const navigate = useNavigate();
+
+
+  const ColorButtonLogin = styled(Button)<ButtonProps>(({ theme }) => ({
+    color: theme.palette.getContrastText(green[700]),
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },
+  }));
+
+  const ColorButtonRegister = styled(Button)<ButtonProps>(({ theme }) => ({
+    color: theme.palette.getContrastText(green[700]),
+    backgroundColor: green[500],
+    '&:hover': {
+      backgroundColor: green[700],
+    },
+  }));
 
 
   return (
@@ -101,14 +123,11 @@ export default function Container() {
             />
           </Box>
 
-          <Box>
-          <Button onClick={handleClickOpen} color="success" variant="outlined">
-            Se connecter
-          </Button>
-          <Button onClick={() => navigate("/utilisateur/register")} color="success" variant="text">
-            S'inscrire
-          </Button>
-          </Box>
+
+          <Stack spacing={2} direction="row">
+            <ColorButtonLogin onClick={handleClickOpen} variant="contained">Se connecter</ColorButtonLogin>
+            <ColorButtonRegister onClick={() => navigate("/utilisateur/register")}  variant="contained">S'inscrire</ColorButtonRegister>
+            </Stack>
           
           <Dialog open={openDialogAuthenticate} onClose={handleClose}>
             <Authentification/>

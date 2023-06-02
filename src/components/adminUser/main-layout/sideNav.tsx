@@ -29,10 +29,25 @@ import {
   TextField,
 } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
+import Link from "@mui/material/Link";
 
 import Content from "../contents/content";
 import { ToolBar } from "./toolbar";
 import { token } from "../../../theme";
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" mt="5rem" sx={{color:'#9DA4AE'}}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Sindwai
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
 
 const drawerWidth = 220;
 
@@ -81,16 +96,6 @@ export default function SideNav(props: Props) {
       title: "Statistique",
       icon: <ShowChartOutlinedIcon />,
     },
-    {
-      link: "/admin/domain",
-      title: "Residence",
-      icon: <DomainVerificationOutlinedIcon />,
-    },
-    {
-      link: "/admin/domain",
-      title: "Certificat de vie",
-      icon: <DomainVerificationOutlinedIcon />,
-    },
 
   ];
 
@@ -110,7 +115,7 @@ export default function SideNav(props: Props) {
           color={theme.palette.mode === "dark" ? colors.grey[100] : "white"}
           sx={{fontFamily:"cursive"}}
         >
-          ADMINIS
+          ADMINS
         </Typography>
       </Box>
 
@@ -190,6 +195,7 @@ export default function SideNav(props: Props) {
           </ListItem>
         ))}
       </List>
+      <Copyright/>
     </div>
   );
 

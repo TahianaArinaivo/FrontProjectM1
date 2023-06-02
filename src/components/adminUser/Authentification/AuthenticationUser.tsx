@@ -12,13 +12,15 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import homeBg from "/home-bg.png";
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Sindway
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -38,6 +40,10 @@ export default function AuthenticationUser() {
     });
   };
 
+  
+
+const navigate = useNavigate();
+
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -48,7 +54,7 @@ export default function AuthenticationUser() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: `url(${homeBg})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -66,11 +72,11 @@ export default function AuthenticationUser() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: '#07A814' }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Authentification
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
@@ -98,6 +104,7 @@ export default function AuthenticationUser() {
                 label="Remember me"
               />
               <Button
+              onClick={() => navigate("/admin")}
                 type="submit"
                 fullWidth
                 variant="contained"
@@ -108,12 +115,7 @@ export default function AuthenticationUser() {
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    Mot de passe oublier
                   </Link>
                 </Grid>
               </Grid>

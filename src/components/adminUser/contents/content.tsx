@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import Home from "../DashBoard/DashBoard";
 import Domain from "../domain/domain";
 import User from "../user/user";
-import Stats from "../stats/stats";
+import Stats from "../Statistic/stats";
 import List from '../list/list';
 
 const drawerWidth = 220;

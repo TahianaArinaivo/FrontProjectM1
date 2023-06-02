@@ -13,9 +13,9 @@ const ImageUpload: React.FC = () => {
   const [imageInfos, setImageInfos] = useState<Array<Ifile>>([]);
 
   useEffect(() => {
-    FileUploadService.getFiles().then((response) => {
+   /* FileUploadService.getFiles().then((response) => {
       setImageInfos(response.data);
-    });
+    });*/
   }, []);
 
   const selectImage = (event: React.ChangeEvent<HTMLInputElement>) => {

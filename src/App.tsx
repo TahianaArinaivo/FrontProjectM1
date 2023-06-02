@@ -24,7 +24,7 @@ function App() {
           <Route path='/' element={<HomePage/>}></Route>
           <Route path='/utilisateur/*' element={<HomePage/>}></Route>
           <Route path="/utilisateur/register" element={<Register />}></Route>
-          <Route path='/utilisateur/dashboard' element={<Dashboard/>}></Route>
+          <Route path='/utilisateur/dashboard/*' element={<Dashboard/>}></Route>
           <Route path='/admin/*' element={<MainLayoutContainer/>}></Route>
         </Routes>
     </RecoilRoot>

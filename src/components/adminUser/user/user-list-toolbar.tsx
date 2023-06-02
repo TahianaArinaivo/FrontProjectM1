@@ -50,7 +50,7 @@ export const UserListToolbar = (props: any) => {
                     </InputAdornment>
                   ),
                 }}
-                placeholder="Search customer"
+                placeholder="Recherche utilisateur"
                 variant="outlined"
               />
             </Box>

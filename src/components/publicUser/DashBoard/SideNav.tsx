@@ -18,17 +18,37 @@ import DomainVerificationOutlinedIcon from "@mui/icons-material/DomainVerificati
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import BallotOutlinedIcon from "@mui/icons-material/BallotOutlined";
 import { Routes, Route, BrowserRouter, useNavigate } from "react-router-dom";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import Link from '@mui/material/Link';
 
 import { token } from "../../../theme";
 
 //import Content from "../contents/content";
 import { ToolBarPublicUser } from "./ToolBar";
 import { Typography, useTheme } from "@mui/material";
+import Content from "./content";
+import ContentPublicUser from "./content";
 
 const drawerWidth = 220;
 
 interface Props {
   window?: () => Window;
+}
+
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" mt="12rem" sx={{color:'#9DA4AE'}}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Sindwai
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
 }
 
 export default function SideNavPublicUser(props: Props) {
@@ -45,29 +65,19 @@ export default function SideNavPublicUser(props: Props) {
 
   const LIST_ITEM = [
     {
-      link: "#",
-      title: "Tableau de bord",
+      link: "/utilisateur/dashboard/",
+      title: "Page d'accueil",
       icon: <DashboardOutlinedIcon />,
     },
     {
-      link: "#",
-      title: "Liste",
-      icon: <BallotOutlinedIcon />,
+      link: "/utilisateur/dashboard/profile",
+      title: "Profil",
+      icon: <PersonOutlinedIcon />,
     },
     {
-      link: "#",
-      title: "Eléction",
-      icon: <DomainVerificationOutlinedIcon />,
-    },
-    {
-      link: "#",
-      title: "Utilisateur",
-      icon: <AdminPanelSettingsOutlinedIcon />,
-    },
-    {
-      link: "#",
-      title: "Statistique",
-      icon: <ShowChartOutlinedIcon />,
+      link: "/utilisateur/dashboard/faq",
+      title: "FAQ Page",
+      icon: <HelpOutlineOutlinedIcon />,
     },
   ];
 
@@ -106,7 +116,7 @@ export default function SideNavPublicUser(props: Props) {
             </Box>
 
 
-      <Divider sx={{ color: "#9DA4AE" }} />
+      <Divider  sx={{ color: "#f1f1f1" }} />
 
       <List>
         {LIST_ITEM.map((item, i) => (
@@ -156,6 +166,8 @@ export default function SideNavPublicUser(props: Props) {
           </ListItem>
         ))}
       </List>
+
+      <Copyright/>
     </div>
   );
 
@@ -233,7 +245,8 @@ export default function SideNavPublicUser(props: Props) {
         component="main"
         sx={{ flexGrow: 1, p: 3, width: `calc(100% - ${drawerWidth}px)` }}
       >
-        {/*<Content />*/}
+        <ContentPublicUser />
+
       </Box>
     </Box>
   );

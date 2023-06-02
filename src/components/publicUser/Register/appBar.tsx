@@ -29,7 +29,7 @@ function AppBarRegister() {
               variant="h6"
               component="div"
             >
-              CINDA
+              CINDIA
             </Typography>
             <IconButton onClick={() => navigate("/")} edge="start" color="inherit" aria-label="close">
               <CancelIcon />
