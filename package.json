@@ -15,8 +15,13 @@
     "@mui/icons-material": "^5.11.9",
     "@mui/joy": "5.0.0-alpha.68",
     "@mui/material": "^5.11.10",
+<<<<<<< HEAD
     "@mui/x-data-grid": "^6.0.2",
     "@types/prop-types": "^15.7.5",
+=======
+    "@mui/utils": "^5.11.13",
+    "@mui/x-data-grid": "^6.0.2",
+>>>>>>> e4805d27fd64adcfadf725d7e2d1738546acf831
     "@types/react-typical": "^0.1.0",
     "axios": "^1.4.0",
     "chart.js": "^4.3.0",
