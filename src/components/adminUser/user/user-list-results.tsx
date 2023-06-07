@@ -55,7 +55,7 @@ export default function UserListResults() {
   };
 
   return (
-    <Box sx={{ height: 400, width: '120%' }}>
+    <Box sx={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}

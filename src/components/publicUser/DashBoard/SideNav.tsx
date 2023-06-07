@@ -31,7 +31,7 @@ import { Typography, useTheme } from "@mui/material";
 import Content from "./content";
 import ContentPublicUser from "./content";
 
-const drawerWidth = 220;
+const drawerWidth = 260;
 
 interface Props {
   window?: () => Window;
@@ -243,7 +243,7 @@ export default function SideNavPublicUser(props: Props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: `calc(100% - ${drawerWidth}px)` }}
+        sx={{ flexGrow: 1, p: 3 , width: "100%" }}
       >
         <ContentPublicUser />
 

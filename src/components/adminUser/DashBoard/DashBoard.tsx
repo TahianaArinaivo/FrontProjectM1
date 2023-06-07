@@ -27,13 +27,7 @@ export default function Home() {
       <Typography sx={{ m: 1 }} variant="h4">
         Tableau de bord
       </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          flexGrow: 1,
-          width: "150vh",
-        }}
-      >
+      <Box>
         <Container maxWidth="lg" sx={{ mt: 1, mb: 4 }}>
           <Deposits />
 

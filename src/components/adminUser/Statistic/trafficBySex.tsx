@@ -3,10 +3,15 @@ import { Box, Card, CardContent, CardHeader, Divider, Typography, useTheme } fro
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import PhoneIcon from '@mui/icons-material/Phone';
 import TabletIcon from '@mui/icons-material/Tablet';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import Chart from 'chart.js';
 
 
-export const TrafficBySex = (props:any) => {
+
+export const TrafficBySex = (props: any) => {
   const theme = useTheme();
+
+  ChartJS.register(ArcElement, Tooltip, Legend);
 
   const data = {
     datasets: [
@@ -65,7 +70,7 @@ export const TrafficBySex = (props:any) => {
   ];
 
   return (
-    <Card {...props}>
+    <Card  {...props}>
       <CardHeader title="Traffic by Device" />
       <Divider />
       <CardContent>

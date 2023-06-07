@@ -41,12 +41,12 @@ const LIST: Props[] = [
 
 export default function Deposits() {
   return (
-    <Grid container>
+    <Grid container >
       {LIST.map((item, i) => {
         return (
           <React.Fragment  key={i}>
             <Grid
-            
+            spacing={1}
               item
               lg={3}
               sm={3}
@@ -55,8 +55,6 @@ export default function Deposits() {
                 display: "inline-block",
                 flexDirection: "row",
                 flexWrap: "wrap",
-                justifyContent: "center",
-                alignItems: "center",
                 marginLeft: "3rem",
                 marginBottom: "2rem",
               }}
@@ -69,7 +67,7 @@ export default function Deposits() {
                       flexDirection: "column",
                       height: "auto",
                       marginTop: "2rem",
-                      width: "250px",
+                      width: "250px"
                     }}
                   >
                     <Grid container sx={{ p: 1 }}>

@@ -9,7 +9,7 @@ const drawerWidth = 220;
 
 export default function ContentPublicUser() {
   return (
-    <Box component="main" sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
+    <Box component="main" >
                 <Routes>
                   <Route path="/" element={<HomePublicUser/>}></Route>
                   <Route path="/profile" element={<ProfilePublicUser/>}></Route>

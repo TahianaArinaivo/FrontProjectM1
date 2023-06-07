@@ -49,7 +49,7 @@ function Copyright() {
 }
 
 
-const drawerWidth = 220;
+const drawerWidth = 260;
 
 interface Props {
   window?: () => Window;
@@ -321,7 +321,7 @@ export default function SideNav(props: Props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: `calc(100% - ${drawerWidth}px)` }}
+        sx={{ flexGrow: 1, pt: 8 , width: "100%" }}
       >
         <Content />
       </Box>
