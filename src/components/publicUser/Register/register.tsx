@@ -17,7 +17,7 @@ import Step2 from '../Register/step2';
 import Step3 from '../Register/step3';
 
 import { useNavigate } from 'react-router-dom';
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 function Copyright() {
   return (
@@ -65,7 +65,12 @@ export default function Register() {
 
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-
+      <Button
+              component="a"
+              startIcon={<ArrowBackIcon fontSize="small" />}
+            >
+              Dashboard
+            </Button>
 
       <Container component="main" maxWidth="lg" sx={{ mb: 0}}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>

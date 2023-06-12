@@ -68,19 +68,15 @@ function FaqPage() {
           </CardContent>
         </Card>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexGrow: 1,
-          width: "150vh",
-          mt: "5rem",
-        }}
-      >
-        {listCard.map((item, id) => (
+      <Box>
+        <Grid container spacing={1}>
+           
+          {listCard.map((item, id) => (
+            <Grid item md={6} xs={12}>
           <Card
             sx={{
               display: "flex",
-              flexDirection: "row",
+              flexDirection:"column",
               height: "100%",
               ml: "1rem",
             }}
@@ -109,7 +105,11 @@ function FaqPage() {
             </CardContent>
             <Box sx={{ flexGrow: 1 }} />
           </Card>
+          </Grid>
         ))}
+          
+        </Grid>
+        
       </Box>
     </div>
   );

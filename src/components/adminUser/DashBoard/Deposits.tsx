@@ -48,7 +48,7 @@ export default function Deposits() {
             <Grid
             spacing={1}
               item
-              lg={3}
+              lg={3} 
               sm={3}
               xs={12}
               sx={{

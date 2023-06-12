@@ -1,16 +1,20 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { Button, Typography } from "@mui/material";
 import Link from '@mui/material/Link';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import {
+  Box,
+  Button,
+  Grid,
+  Typography,
+} from "@mui/material";
 
 interface Row {
   date:Date,
@@ -65,7 +69,10 @@ export default function HomePublicUser() {
         <Typography sx={{ m: 1 }} variant="h4">
          Vos Demandes:
         </Typography>
-      <FormControl fullWidth sx={{mb:"3rem", maxWidth: "50%"}}>
+      
+      <Grid container>
+        <Grid item md={10} xs={12}>
+        <FormControl fullWidth sx={{mb:"3rem", maxWidth: "50%"}}>
         <InputLabel id="demo-simple-select-label">Type de demande</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -80,9 +87,10 @@ export default function HomePublicUser() {
         </Select>
         <Button variant="contained" onClick={handelSubmit} sx={{width:"25%", alignSelf: "end", marginTop: 1}}>Demander</Button>
       </FormControl>
+        </Grid>
 
-
-      <React.Fragment>
+        <Grid item md={12} xs={12}>
+        <React.Fragment>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -104,6 +112,8 @@ export default function HomePublicUser() {
         </TableBody>
       </Table>
     </React.Fragment>
+        </Grid>
+      </Grid>
 
     </Box>
   );
