@@ -5,6 +5,7 @@ import Home from "../DashBoard/DashBoard";
 import User from "../user/user";
 import Stats from "../Statistic/stats";
 import List from '../List/list';
+import ProfileAdminUser from '../main-layout/profile';
 
 const drawerWidth = 220;
 
@@ -16,6 +17,7 @@ export default function Content() {
                   <Route path="/liste" element={<List/>}></Route>
                   <Route path="/user" element={<User/>}></Route>
                   <Route path="/stat" element={<Stats/>}></Route>
+                  <Route path="/admin profile" element={<ProfileAdminUser/>}></Route>
                 </Routes>
     </Box>
   )

@@ -71,7 +71,7 @@ const navigate = useNavigate();
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Email"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -81,15 +81,12 @@ const navigate = useNavigate();
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Mot de passe"
                 type="password"
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
+
               <Button
               onClick={() => navigate("/utilisateur/dashboard")}
                 type="submit"

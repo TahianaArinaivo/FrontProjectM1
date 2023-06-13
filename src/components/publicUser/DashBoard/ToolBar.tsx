@@ -206,12 +206,6 @@ export const ToolBarPublicUser = () => {
         <Divider />
         <MenuItem onClick={handleCloseAccount}>
           <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Parametre
-        </MenuItem>
-        <MenuItem onClick={handleCloseAccount}>
-          <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
           Se deconnecter

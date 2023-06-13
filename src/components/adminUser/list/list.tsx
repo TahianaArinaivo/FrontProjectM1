@@ -6,12 +6,12 @@ import {
   GridRowParams,
   GridValueGetterParams,
 } from "@mui/x-data-grid";
-import Information from "./information";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { useTheme } from "@mui/material";
 
 //Information
 import Button from "@mui/material/Button";
@@ -28,6 +28,10 @@ import IconButton from "@mui/material/IconButton";
 import BadgeIcon from "@mui/icons-material/Badge";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import BookIcon from "@mui/icons-material/Book";
+
+import { token } from "../../../theme";
+import Residence from "./Residence";
+import PrintIcon from '@mui/icons-material/Print';
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -81,7 +85,7 @@ const rows = [
     cin: 169069269369,
   },
   {
-    id: 1,
+    id: 2,
     lastName: "Aloy ",
     firstName: "RAMANANDRAIBE",
     adresse: "FBC 84",
@@ -90,7 +94,7 @@ const rows = [
     cin: 169069269369,
   },
   {
-    id: 1,
+    id: 3,
     lastName: "Aloy ",
     firstName: "RAMANANDRAIBE",
     adresse: "FBC 84",
@@ -99,7 +103,7 @@ const rows = [
     cin: 169069269369,
   },
   {
-    id: 1,
+    id: 4,
     lastName: "Aloy ",
     firstName: "RAMANANDRAIBE",
     adresse: "FBC 84",
@@ -108,7 +112,7 @@ const rows = [
     cin: 169069269369,
   },
   {
-    id: 1,
+    id: 5,
     lastName: "Aloy ",
     firstName: "RAMANANDRAIBE",
     adresse: "FBC 84",
@@ -117,7 +121,7 @@ const rows = [
     cin: 169069269369,
   },
   {
-    id: 1,
+    id: 6,
     lastName: "Aloy ",
     firstName: "RAMANANDRAIBE",
     adresse: "FBC 84",
@@ -126,7 +130,7 @@ const rows = [
     cin: 169069269369,
   },
   {
-    id: 1,
+    id: 7,
     lastName: "Aloy ",
     firstName: "RAMANANDRAIBE",
     adresse: "FBC 84",
@@ -135,7 +139,7 @@ const rows = [
     cin: 169069269369,
   },
   {
-    id: 1,
+    id: 8,
     lastName: "Aloy ",
     firstName: "RAMANANDRAIBE",
     adresse: "FBC 84",
@@ -144,7 +148,7 @@ const rows = [
     cin: 169069269369,
   },
   {
-    id: 1,
+    id: 9,
     lastName: "Aloy ",
     firstName: "RAMANANDRAIBE",
     adresse: "FBC 84",
@@ -156,6 +160,7 @@ const rows = [
 
 export default function List() {
   const [open, setOpen] = React.useState(false);
+  const [openResidence, setOpenResidence] = React.useState(false);
   const [currentRow, setCurrentRow] = React.useState<GridRowParams>();
 
   const handleClickOpen = (params: GridRowParams) => {
@@ -167,6 +172,18 @@ export default function List() {
     setOpen(false);
   };
 
+
+  const handelOpenDialogResidence = () =>{
+    setOpenResidence(true);
+  };
+  const closeDialogResidence = () =>{
+    setOpenResidence(false);
+  };
+
+
+  const theme = useTheme();
+  const colors = token(theme.palette.mode);
+
   //Pour récupérer les valeurs : {currentRow?.row?.lastName}
 
   return (
@@ -174,7 +191,7 @@ export default function List() {
       <Typography sx={{ m: 1, pl: 3 }} variant="h4">
         Liste
       </Typography>
-      <Box sx={{ height: "10%", width: "100%", p: 3 }}>
+      <Box sx={{ height:"550px", width: "100%", p: 3 }}>
         <DataGrid
           rows={rows}
           columns={columns}
@@ -196,35 +213,46 @@ export default function List() {
       <Dialog
         open={open}
         onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
           <Box>
-            {"Modifier les informations "}
-            <Box sx={{ flexGrow: 1 }}></Box>
-
-            <Box sx={{ position: "relative" }}>
-              <IconButton color="primary">
+            {"Informations"}
+            <Box sx={{position:"absolute", display: "flex", justifyContent: "flex-end",top:10, right:20 }}>
+              <IconButton sx={{ color: colors.greenAccent[500]}} onClick={handelOpenDialogResidence} >
                 <BadgeIcon />
               </IconButton>
 
-              <IconButton color="primary">
+              <IconButton sx={{ color: colors.greenAccent[500]}}>
                 <AccountBoxIcon />
               </IconButton>
 
-              <IconButton color="primary">
+              <IconButton sx={{ color: colors.greenAccent[500]}}>
                 <BookIcon />
               </IconButton>
             </Box>
           </Box>
+
+
+
+          <Dialog maxWidth={'xl'} sx={{ml:"15rem"}} open={openResidence} onClose={closeDialogResidence}>
+              <Residence/>
+              <DialogActions>
+                <IconButton color="primary">
+                  <PrintIcon/>
+                </IconButton>
+              </DialogActions>
+          </Dialog>
+
+
+
         </DialogTitle>
+
+
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "",
               }}
             >
               <Card
@@ -328,7 +356,7 @@ export default function List() {
               <TextField
                 id="standard-basic"
                 label="Adresse"
-                value={currentRow?.row?.adresse} 
+                value={currentRow?.row?.adresse}
                 disabled
                 style={{ marginTop: "10px", width: "100%", marginRight: "5px" }}
               />
@@ -365,12 +393,6 @@ export default function List() {
             </Box>
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Annuler</Button>
-          <Button onClick={handleClose} autoFocus>
-            Valider
-          </Button>
-        </DialogActions>
       </Dialog>
     </div>
   );

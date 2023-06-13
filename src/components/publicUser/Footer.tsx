@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { IconButton } from "@mui/material";
@@ -8,6 +8,19 @@ import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="#f1f1f1" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Sindwai
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 export default function Footer() {
   return (
@@ -107,9 +120,7 @@ export default function Footer() {
           </IconButton>
         </Box>
 
-        <Divider sx={{ color: "#9DA4AE" }} />
-
-        <Box>Copyright @copy 2023 By Sindwai</Box>
+        <Copyright/>
       </Box>
     </div>
   );

@@ -103,7 +103,7 @@ export default function SideNav(props: Props) {
   const colors = token(theme.palette.mode);
 
   const drawer = (
-    <div>
+    <div> 
       <Box
         display="flex"
         justifyContent="space-between"

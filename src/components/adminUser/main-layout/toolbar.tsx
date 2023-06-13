@@ -14,11 +14,8 @@ import {
 } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { UserCircle as UserCircleIcon } from "../../../icons/user-circle";
-import {
-  NotificationsOutlined,
-  Settings,
-  Logout,
-} from "@mui/icons-material";
+import { NotificationsOutlined, Settings, Logout } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 interface PropsNotif {
   title: string;
@@ -36,14 +33,21 @@ export const ToolBar = () => {
     setAnchorEl(null);
   };
 
+  const [anchorElAccount, setAnchorElAccount] =
+    React.useState<null | HTMLElement>(null);
 
-  const [anchorElAccount, setAnchorElAccount] = React.useState<null | HTMLElement>(null);
   const openAccount = Boolean(anchorElAccount);
+
   const handleClickAccount = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElAccount(event.currentTarget);
   };
+
+
+  const navigate = useNavigate();
+
   const handleCloseAccount = () => {
     setAnchorElAccount(null);
+    navigate('/admin/admin profile')
   };
   const LIST_NOTIF: PropsNotif[] = [
     {
@@ -163,7 +167,8 @@ export const ToolBar = () => {
         </Box>
       </Menu>
 
-      <Avatar onClick={handleClickAccount}
+      <Avatar
+        onClick={handleClickAccount}
         sx={{
           cursor: "pointer",
           height: 40,
@@ -184,42 +189,37 @@ export const ToolBar = () => {
         PaperProps={{
           elevation: 0,
           sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            overflow: "visible",
+            filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
             mt: 1.5,
-            '& .MuiAvatar-root': {
+            "& .MuiAvatar-root": {
               width: 32,
               height: 32,
               ml: -0.5,
               mr: 1,
             },
-            '&:before': {
+            "&:before": {
               content: '""',
-              display: 'block',
-              position: 'absolute',
+              display: "block",
+              position: "absolute",
               top: 0,
               right: 14,
               width: 10,
               height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
+              bgcolor: "background.paper",
+              transform: "translateY(-50%) rotate(45deg)",
               zIndex: 0,
             },
           },
         }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem onClick={handleCloseAccount}>
           <Avatar /> Profile
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleCloseAccount}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Parametre
-        </MenuItem>
+
         <MenuItem onClick={handleCloseAccount}>
           <ListItemIcon>
             <Logout fontSize="small" />
