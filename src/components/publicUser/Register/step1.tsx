@@ -5,8 +5,12 @@ import { Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import ImageUpload from "./imageUpload";
+import { useAnalysCin } from "../../../hooks/useAnalysCin";
 
 function Step1() {
+  const {isLoading, analysCinMutate, isSuccess} = useAnalysCin()
+  const handleAnalysCIN = () => {
+  }
   return (
     <>
          <Box sx={{ width: "98%"}}>

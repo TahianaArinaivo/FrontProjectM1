@@ -11,14 +11,23 @@ import {
   useRecoilState,
   useRecoilValue,
 } from 'recoil';
-import Register from './components/publicUser/Register/register'
-import Dashboard from './components/publicUser/DashBoard/Dashboard'
-import AuthenticationUser from './components/adminUser/Authentification/AuthenticationUser'
+import Register from './components/publicUser/Register/register';
+import Dashboard from './components/publicUser/DashBoard/Dashboard';
+import AuthenticationUser from './components/adminUser/Authentification/AuthenticationUser';
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query';
+
+const queryClient = new QueryClient()
+
 
 function App() {
 
   return (
-    <RecoilRoot>
+   <QueryClientProvider  client={queryClient}>
+     <RecoilRoot>
         <Routes>
           <Route path='/authentication' element={<AuthenticationUser/>}></Route>
           <Route path='/' element={<HomePage/>}></Route>
@@ -28,6 +37,7 @@ function App() {
           <Route path='/admin/*' element={<MainLayoutContainer/>}></Route>
         </Routes>
     </RecoilRoot>
+   </QueryClientProvider>
   )
 }
 
