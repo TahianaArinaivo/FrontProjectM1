@@ -10,10 +10,15 @@ import {
 } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useRecoilState } from "recoil";
+import userAtom from "../../../atom/userAtom";
 
 function Step2() {
 
   const [showPassword, setShowPassword] = React.useState(false);
+  const [user, setUser] = useRecoilState(userAtom);
+  
+
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (

@@ -5,8 +5,12 @@ import Ifile from "../types/file";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import { Box,IconButton } from "@mui/material";
 
-const ImageUpload: React.FC = () => {
-  const [currentImage, setCurrentImage] = useState<File>();
+type Props = {
+  cinUpload : (cin:File) => void;
+}
+
+const ImageUpload = ({cinUpload}: Props) => {
+  const [currentImage, setCurrentImage] = useState<File | undefined>();
   const [previewImage, setPreviewImage] = useState<string>("");
   const [progress, setProgress] = useState<number>(0);
   const [message, setMessage] = useState<string>("");
@@ -16,10 +20,14 @@ const ImageUpload: React.FC = () => {
    /* FileUploadService.getFiles().then((response) => {
       setImageInfos(response.data);
     });*/
-  }, []);
+    if(currentImage) {
+      cinUpload(currentImage)
+    }
+  }, [currentImage]);
 
   const selectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files as FileList;
+    console.log("selected file:", selectedFiles);
     setCurrentImage(selectedFiles?.[0]);
     setPreviewImage(URL.createObjectURL(selectedFiles?.[0]));
     setProgress(0);
@@ -59,7 +67,7 @@ const ImageUpload: React.FC = () => {
         aria-label="upload picture"
         component="label"
         onClick={upload}>
-        <input hidden accept="image/*" type="file" onChange={selectImage}/>
+        <input hidden accept=".pdf" type="file"  onChange={selectImage}/>
         <PhotoCamera />
         </IconButton>
 

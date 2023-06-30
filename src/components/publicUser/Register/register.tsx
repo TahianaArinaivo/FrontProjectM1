@@ -34,10 +34,10 @@ function Copyright() {
 
 const steps = ["Scan CIN", "Email & Mot de passe", "Verification"];
 
-function getStepContent(step?: any) {
+function getStepContent(step?: any, handleNextDisabled?:(disable: boolean) => void) {
   switch (step) {
     case 0:
-      return <Step1 />;
+      return <Step1 handleNextDisabled={handleNextDisabled} />;
     case 1:
       return <Step2 />;
     case 2:
@@ -50,6 +50,7 @@ const defaultTheme = createTheme();
 
 export default function Register() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [disable, setDisable] = React.useState(true);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -59,12 +60,15 @@ export default function Register() {
     setActiveStep(activeStep - 1);
   };
 
+  const handleNextDisable = (value: boolean) => {
+    setDisable(value);
+  }
+
   const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-
       <Container component="main" maxWidth="lg" sx={{ mb: 0 }}>
         <Paper
           variant="outlined"
@@ -99,7 +103,7 @@ export default function Register() {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              {getStepContent(activeStep)}
+              {getStepContent(activeStep, handleNextDisable )}
               <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                 {activeStep !== 0 && (
                   <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
@@ -111,8 +115,9 @@ export default function Register() {
                   variant="contained"
                   onClick={handleNext}
                   sx={{ mt: 3, ml: 1 }}
+                  disabled={disable}
                 >
-                  {activeStep === steps.length - 1 ? "Place order" : "Next"}
+                  {activeStep === steps.length - 1 ? "S'inscrire" : "Suivant"}
                 </Button>
               </Box>
             </React.Fragment>
