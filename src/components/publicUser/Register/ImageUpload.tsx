@@ -27,7 +27,6 @@ const ImageUpload = ({cinUpload}: Props) => {
 
   const selectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files as FileList;
-    console.log("selected file:", selectedFiles);
     setCurrentImage(selectedFiles?.[0]);
     setPreviewImage(URL.createObjectURL(selectedFiles?.[0]));
     setProgress(0);

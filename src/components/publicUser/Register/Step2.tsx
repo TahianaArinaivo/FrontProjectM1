@@ -6,19 +6,17 @@ import {
   InputAdornment,
   InputLabel,
   OutlinedInput,
-  Typography,
 } from "@mui/material";
-import Button from "@mui/material/Button";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useRecoilState } from "recoil";
-import userAtom from "../../../atom/userAtom";
 
-function Step2() {
+interface Props {
+  handlePassword? : (password:string) => void
+  handlePhone? : (phone: string) => void
+}
 
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [user, setUser] = useRecoilState(userAtom);
-  
+function Step2(props: Props) {
 
+  const [showPassword, setShowPassword] = React.useState(false);  
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (
@@ -40,15 +38,16 @@ function Step2() {
         }}
       >
         <FormControl sx={{ m: 1, width: "35ch" }} variant="outlined">
-          <InputLabel>Email</InputLabel>
-          <OutlinedInput id="email" label="email" />
+          <InputLabel>Téléphone</InputLabel>
+          <OutlinedInput id="email" label="phone" onChange={(e) => props?.handlePhone?.(e.target.value)} />
         </FormControl>
         <FormControl sx={{ m: 1, width: "35ch" }} variant="outlined">
-          <InputLabel>Password</InputLabel>
+          <InputLabel>Mot de passe</InputLabel>
           <OutlinedInput
             id="passwordId"
             type={showPassword ? "text" : "password"}
-            label="password"
+            label="Mot de passe"
+            onChange={(e) => props?.handlePassword?.(e.target.value)} 
             endAdornment={
               <InputAdornment position="end">
                 <IconButton

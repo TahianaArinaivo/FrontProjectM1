@@ -1,4 +1,3 @@
-import axios from "axios";
 import APICLIENT from "./api-client";
 import { User } from "../components/publicUser/types/User";
 
@@ -23,8 +22,8 @@ import { User } from "../components/publicUser/types/User";
 
 const fn = (Cin: File) => {
   const formData = new FormData();
-
   formData.append("fileUpload", Cin);
+  return formData;
 };
 
 export default new APICLIENT<User>("/CinAnalys", fn);

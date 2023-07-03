@@ -11,7 +11,7 @@ import {
   useRecoilState,
   useRecoilValue,
 } from 'recoil';
-import Register from './components/publicUser/Register/register';
+import Register from './components/publicUser/Register/Register';
 import Dashboard from './components/publicUser/DashBoard/Dashboard';
 import AuthenticationUser from './components/adminUser/Authentification/AuthenticationUser';
 import {

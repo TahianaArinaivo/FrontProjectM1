@@ -6,7 +6,7 @@ function Step3() {
     <div>
       <Box>
         <Typography sx={{fontSize:"20px"}}>
-          verification
+          Vérification
         </Typography>
       </Box>
     </div>

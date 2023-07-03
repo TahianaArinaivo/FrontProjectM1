@@ -6,7 +6,7 @@ import { Typography } from "@mui/material";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import Typical from "react-typical";
-import Authentification from "./authentification/authentification";
+import Authentification from "./authentification/Authentification";
 import { useNavigate } from "react-router-dom";
 
 import { styled } from '@mui/material/styles';

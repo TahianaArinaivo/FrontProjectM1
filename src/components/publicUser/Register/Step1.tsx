@@ -4,18 +4,18 @@ import { Button } from "@mui/material";
 import { Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
-import ImageUpload from "./imageUpload";
+import ImageUpload from "./ImageUpload";
 import { useAnalysCin } from "../../../hooks/useAnalysCin";
 import { CinAnalysResult } from "./CinAnalysResult";
 import { useRecoilState } from "recoil";
 import userAtom from "../../../atom/userAtom";
 
 interface Props  {
-  handleNextDisabled?: (disabled: boolean) => void 
+  handleNextDisabled?: (disabled: boolean) => void
 }
 
 function Step1(props: Props) {
-  const { isLoading, analysCinMutate, isSuccess, data, error } = useAnalysCin();
+  const { isLoading, analysCinMutate, isSuccess, data } = useAnalysCin();
   const [Cin, setCin] = React.useState<File>({} as File);
   const [user, setUser] = useRecoilState(userAtom);
  

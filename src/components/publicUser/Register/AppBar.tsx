@@ -6,7 +6,8 @@ import CancelIcon from "@mui/icons-material/Cancel";
 
 function AppBarRegister() {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  
   return (
     <div>
         <AppBar

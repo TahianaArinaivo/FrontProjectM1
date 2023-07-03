@@ -1,16 +1,16 @@
 import { useMutation } from "@tanstack/react-query";
-import CinService from "../services/CinService";
+import { User } from "../components/publicUser/types/User";
+import { Register } from "../services/UserService";
 
-
-export const useAnalysCin = () => {
+export const useSignIn = () => {
   const mutation = useMutation({
-    mutationFn: (cin: File) => CinService.postCin(cin),
+    mutationFn: (data:any) => Register.post(data),
   });
 
   return {
     error: mutation.isError,
     isLoading: mutation.isLoading,
-    analysCinMutate: mutation.mutate,
+    signIn: mutation.mutate,
     isSuccess: mutation.isSuccess,
     data: mutation.data,
   };
