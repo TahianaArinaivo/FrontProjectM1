@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../../../atom/userAtom";
-import { useSignIn } from "../../../hooks/useSignIn";
+import { useSignUp } from "../../../hooks/useSignUp";
 
 function Copyright() {
   return (
@@ -64,9 +64,8 @@ export default function Register() {
   const [user, setUser] = useRecoilState(userAtom);
   const [phone, setPhone] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
-  const { data, isLoading, error, signIn } = useSignIn();
+  const { data, isLoading, error, signIn } = useSignUp();
 
-  console.log("user context:", user);
 
   const handleNext = () => {
     if (activeStep === 1) {
@@ -79,8 +78,25 @@ export default function Register() {
       setUser(currentUser);
     }
     if (activeStep === 2) {
-      const data = {};
-      signIn(user);
+      const data = {
+        Name: user?.name,
+        FirstName: user?.lastName,
+        Birthday: user?.birth,
+        Birthplace: user?.birthplace,
+        Address: user?.address,
+        FathersName: user?.fatherName,
+        MothersName: user?.motherName,
+        PlaceOfIssue: "antananarivo",
+        Sex: "Feminin",
+        Tel: user?.phone,
+        NumCIN: user?.numCIN,
+        ScanCIN: "localhost://test",
+        Password: user?.password,
+        SectionId: 1,
+        UserCasierId: 1,
+        UserDistrictId: 1
+      };
+      signIn(data);
     }
     setActiveStep((prevStep) => prevStep + 1);
   };
