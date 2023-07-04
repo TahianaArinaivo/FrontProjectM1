@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Box, Dialog } from "@mui/material";
-import homeBg from "/home-bg.png";
 import { Button } from "@mui/material";
 import { Typography } from "@mui/material";
 import Slide from "@mui/material/Slide";
@@ -9,16 +8,14 @@ import Typical from "react-typical";
 import Authentification from "./authentification/Authentification";
 import { useNavigate } from "react-router-dom";
 
-import { styled } from '@mui/material/styles';
-import  { ButtonProps } from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import { cyan, green, lightGreen, purple, teal } from '@mui/material/colors';
-
-
+import { styled } from "@mui/material/styles";
+import { ButtonProps } from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import { cyan, green, lightGreen, purple, teal } from "@mui/material/colors";
 
 export default function Container() {
-
-  const [openDialogAuthenticate, setOpenDialogAuthenticate] = React.useState(false);
+  const [openDialogAuthenticate, setOpenDialogAuthenticate] =
+    React.useState(false);
 
   const handleClickOpen = () => {
     setOpenDialogAuthenticate(true);
@@ -28,70 +25,74 @@ export default function Container() {
     setOpenDialogAuthenticate(false);
   };
 
-
   const navigate = useNavigate();
 
-
-  const ColorButtonLogin = styled(Button)<ButtonProps>(({ theme }) => ({
+  const ColorButtonMore = styled(Button)<ButtonProps>(({ theme }) => ({
     color: theme.palette.getContrastText(green[700]),
-    backgroundColor: green[500],
-    '&:hover': {
-      backgroundColor: green[700],
+    backgroundColor: "rgba(0, 0, 0, 0.127)",
+    borderRadius:15,
+    "&:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0.407)",
+      transitionDuration: ".1s",
     },
   }));
 
   const ColorButtonRegister = styled(Button)<ButtonProps>(({ theme }) => ({
     color: theme.palette.getContrastText(green[700]),
     backgroundColor: green[500],
-    '&:hover': {
+    "&:hover": {
       backgroundColor: green[700],
     },
   }));
-
 
   return (
     <div id="home">
       <Box
         sx={{
-          backgroundImage: `url(${homeBg})`,
+          pt: "3rem",
+          backgroundImage: `url(/bannièreGp.png)`,
           backgroundSize: "cover",
           maxWidth: "100%",
           height: "700px",
+          display: "flex",
+          flexDirection: "column",
+          flexWrap: "wrap",
         }}
       >
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            pt: "10rem",
+            pl: "5rem",
+            justifyContent: "left",
+            alignItems: "left",
             flexDirection: "column",
-            height: "100%",
           }}
         >
           <Box
             sx={{
               display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              justifyContent: "left",
+              alignItems: "left",
               flexDirection: "column",
             }}
           >
             <Typography
               sx={{
                 color: "#fff",
-                fontFamily: "monospace",
+                fontFamily: "'Work Sans', sans-serif",
                 fontSize: "30px",
-                fontWeight: 400,
+                fontWeight: 500,
               }}
             >
               Bienvenu sur
             </Typography>
             <Typography
               sx={{
-                color: "#07A814",
-                fontFamily: "sans-serif",
+                color: "#71DCEC",
+                fontFamily:"cursive",
                 fontSize: "60px",
-                fontWeight: 900,
+                fontWeight: 700,
               }}
             >
               CINDIA
@@ -100,40 +101,48 @@ export default function Container() {
 
           <Box
             sx={{
-              color: "#1C2536",
-              fontFamily: "inherit",
-              fontWeight: 800,
-              fontSize: "20px",
               marginBottom: "3rem",
-              alignContent:"left"
+              alignContent: "left",
+              width: "500px",
             }}
           >
-            <Typical
-              steps={[
-                "Cindia",
-                5000,
-                "Lorem ipsum dolor sit,",
-                1000,
-                "amet consectetur adipisicing elit.",
-                1000,
-                "Saepe adipis",
-              ]}
-              loop={Infinity}
-              wrapper="p"
-            />
+            <Typography
+              sx={{
+                color: "white",
+                fontFamily: "'Work Sans', sans-serif",
+                fontWeight: 400,
+                fontSize: "15px",
+              }}
+            >
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed quo
+              facere pariatur excepturi omnis hic neque, debitis animi similique
+              praesentium error autem unde provident officia reiciendis sapiente
+              sint fuga tenetur!
+            </Typography>
           </Box>
 
-
           <Stack spacing={2} direction="row">
-            <ColorButtonLogin onClick={handleClickOpen} variant="contained">Se connecter</ColorButtonLogin>
-            <ColorButtonRegister onClick={() => navigate("/utilisateur/register")}  variant="contained">S'inscrire</ColorButtonRegister>
-            </Stack>
-          
-          <Dialog open={openDialogAuthenticate} onClose={handleClose}>
-            <Authentification/>
-          </Dialog>
-          
+            <ColorButtonMore onClick={handleClickOpen} variant="contained">
+              Voir plus
+            </ColorButtonMore>
+          </Stack>
 
+        </Box>
+
+        <Box
+          sx={{
+            width: "500px",
+            height: "500px",
+            borderRadius: "50%",
+            backgroundColor: "rgba(0, 0, 0, 0.283)",
+            marginTop: "5rem",
+          }}
+        >
+          <img
+            style={{ width: "600px", height: "auto" }}
+            src="/IAbanner.png"
+            alt=""
+          />
         </Box>
       </Box>
     </div>

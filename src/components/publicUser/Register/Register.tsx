@@ -79,9 +79,7 @@ export default function Register() {
       setUser(currentUser);
     }
     if (activeStep === 2) {
-      const data = {
-        
-      }
+      const data = {};
       signIn(user);
     }
     setActiveStep((prevStep) => prevStep + 1);
@@ -105,69 +103,69 @@ export default function Register() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <Container component="main" maxWidth="lg" sx={{ mb: 0 }}>
-        <Paper
-          variant="outlined"
-          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
-        >
-          <Box>
-            <Button
-              component="a"
-              startIcon={<ArrowBackIcon fontSize="small" />}
-              onClick={() => navigate("/")}
-            >
-              Accueil
-            </Button>
-            <Typography component="h1" variant="h4" align="center">
-              CINDIA
-            </Typography>
-          </Box>
-
-          <Stepper activeStep={activeStep} sx={{ pt: 3 }}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-          {activeStep === steps.length ? (
-            <React.Fragment>
-              <Typography variant="h5" gutterBottom>
-                Terminer
+      <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
+        <Container component="main" maxWidth="lg" sx={{ mb: 0 }}>
+          <Paper
+            variant="outlined"
+            sx={{ my: { xs: 1, md: 0 }, p: { xs: 2, md: 3 } }}
+          >
+            <Box>
+              <Button
+                component="a"
+                startIcon={<ArrowBackIcon fontSize="small" />}
+                onClick={() => navigate("/")}
+              >
+                Accueil
+              </Button>
+              <Typography component="h1" variant="h4" align="center">
+                CINDIA
               </Typography>
-              {/* <Typography variant="subtitle1">Sur sur</Typography> */}
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {getStepContent(
-                activeStep,
-                handleNextDisable,
-                handlePhone,
-                handlePassword
-              )}
-              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                {activeStep !== 0 && (
-                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                    Revenir
-                  </Button>
-                )}
+            </Box>
 
-                <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 3, ml: 1 }}
-                  disabled={disable}
-                >
-                  {activeStep === steps.length - 1 ? "S'inscrire" : "Suivant"}
-                </Button>
-              </Box>
-            </React.Fragment>
-          )}
-          <Copyright />
-        </Paper>
-      </Container>
-    </ThemeProvider>
+            <Stepper activeStep={activeStep} sx={{ pt: 3 }}>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            {activeStep === steps.length ? (
+              <React.Fragment>
+                <Typography variant="h5" gutterBottom>
+                  Terminer
+                </Typography>
+                {/* <Typography variant="subtitle1">Sur sur</Typography> */}
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                {getStepContent(
+                  activeStep,
+                  handleNextDisable,
+                  handlePhone,
+                  handlePassword
+                )}
+                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                  {activeStep !== 0 && (
+                    <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                      Revenir
+                    </Button>
+                  )}
+
+                  <Button
+                    variant="contained"
+                    onClick={handleNext}
+                    sx={{ mt: 3, ml: 1 }}
+                    disabled={disable}
+                  >
+                    {activeStep === steps.length - 1 ? "S'inscrire" : "Suivant"}
+                  </Button>
+                </Box>
+              </React.Fragment>
+            )}
+            <Copyright />
+          </Paper>
+        </Container>
+      </ThemeProvider>
   );
 }

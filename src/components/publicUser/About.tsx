@@ -23,37 +23,8 @@ export default function About() {
                 flexDirection:"column",
                 paddingTop:"1rem",
                 color:"#f1f1f1",
-                marginTop:"1rem"
+                marginTop:0,
             }}>
-              <Box sx={{
-                position:"relative",
-                backgroundColor:"white",
-                top:"-1rem",
-                width:"100%",
-                display:"flex",
-                flexDirection:"row",
-                flexWrap:"wrap",
-                justifyContent:"center",
-                alignItems:"center",
-              }}>
-
-
-                {LIST_IMG.map((items,i) => {
-                  return(
-                    <ImageListItem key={i} sx={{ 
-                    width:80,
-                    height:60,     
-                    marginLeft:0,                
-                    display:"inline-block",
-                    flexDirection:"row",
-                    flexWrap:"wrap",
-                    justifyContent:"center",
-                    alignItems:"center",}}  >
-                      <img loading="lazy" src={items.img} alt={items.alt}  />
-                    </ImageListItem>
-                  )
-                })}
-              </Box>
             <Box sx={{
                 fontFamily:"cursive",
                 fontSize:"40px",
