@@ -49,13 +49,12 @@ function Step1(props: Props) {
               variant="h6"
               sx={{ marginBottom: "1rem", margin: "1rem",fontFamily: "'Work Sans', sans-serif" }}
             >
-              Lorem ipsum, dolor sit amet consectetur
+              Insérer votre Carte d'identité
             </Typography>
-            <Typography sx={{ margin: "1rem", fontSize: "12px",fontFamily: "'Work Sans', sans-serif" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-              aliquid sed inventore neque a quibusdam rem debitis nam maxime
-              natus velit saepe aspernatur est molestiae, error vero suscipit
-              qui esse?
+            <Typography sx={{ margin: "1rem", fontSize: "12px" }}>
+              Selectionnez votre CIN en version PDF dans le repertoire de fichiers pour 
+              valider le CIN concerner, puis selectionnez sur Analyser et laissez l'Intelligence Artificielle se charger de 
+              la génération automatique de vos informations.
             </Typography>
 
             <Box
@@ -63,9 +62,9 @@ function Step1(props: Props) {
                 width: "80%",
                 height: "350px",
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                justifyContent:"center",
                 flexDirection: "column",
+                alignItems: "center",
                 marginTop: "2rem",
                 boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
               }}
