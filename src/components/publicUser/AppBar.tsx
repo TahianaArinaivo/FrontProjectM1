@@ -72,7 +72,7 @@ const navigate = useNavigate();
       >
         <Toolbar>
           <Box component="div" sx={{ flexGrow: 1, marginLeft: 4 }}>
-            <Typography variant="h4" color={"#71DCEC"} sx={{fontFamily:"cursive",}}>
+            <Typography variant="h4" color={"#71DCEC"} sx={{fontFamily:"'Roboto Mono', monospace"}}>
               CINDIA
             </Typography>
           </Box>

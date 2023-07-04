@@ -5,10 +5,10 @@ function Step3() {
   return (
     <div>
       <Box sx={{width:"90%",margin:"7rem",height:"500px"}}>
-        <Typography sx={{fontSize:"20px"}}>
+        <Typography sx={{fontSize:"17px",fontFamily: "'Work Sans', sans-serif"}}>
          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum exercitationem sapiente ipsum officiis?
 
-         <Button variant="text">
+         <Button sx={{color:"#7874D6"}} variant="text">
             s'inscrire
          </Button>
         </Typography>
