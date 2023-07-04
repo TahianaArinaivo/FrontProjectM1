@@ -1,12 +1,16 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 
 function Step3() {
   return (
     <div>
-      <Box>
+      <Box sx={{width:"90%",margin:"7rem",height:"500px"}}>
         <Typography sx={{fontSize:"20px"}}>
-          Vérification
+         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum exercitationem sapiente ipsum officiis?
+
+         <Button variant="text">
+            s'inscrire
+         </Button>
         </Typography>
       </Box>
     </div>

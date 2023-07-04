@@ -46,7 +46,7 @@ const navigate = useNavigate();
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: '100vh',backgrondColor:"rgba(0, 0, 0, 0.431" }}>
         <CssBaseline />
 
         <Grid item xs={12}  component={Paper} elevation={6} square>

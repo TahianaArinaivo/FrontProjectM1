@@ -26,10 +26,10 @@ export default function About() {
                 marginTop:0,
             }}>
             <Box sx={{
-                fontFamily:"cursive",
+                fontFamily: "'Work Sans', sans-serif",
                 fontSize:"40px",
                 marginBottom:"2rem",
-                fontWeight:"900"
+                fontWeight:"800"
             }}>
                 A PROPOS
             </Box>
@@ -59,12 +59,12 @@ export default function About() {
                         alt="green iguana"
                     />
                     <CardContent>
-                      <Typography color="success" gutterBottom variant="h5" component="div">
+                      <Typography color="success" gutterBottom variant="h5" component="div" sx={{fontFamily: "'Work Sans', sans-serif",}}>
                         {list.title}
                       </Typography>
                       <Typography variant="body2" sx={{
                         color:"#9DA4AE",
-                        fontFamily:"cursive",
+                        fontFamily: "'Work Sans', sans-serif",
                       }} >
                         {list.descriptio}
                       </Typography>

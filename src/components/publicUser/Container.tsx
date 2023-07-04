@@ -90,7 +90,7 @@ export default function Container() {
             <Typography
               sx={{
                 color: "#71DCEC",
-                fontFamily:"cursive",
+                fontFamily:"'Roboto Mono', monospace",
                 fontSize: "60px",
                 fontWeight: 700,
               }}

@@ -3,13 +3,13 @@ import FileUploadService from "../services/fileUploadService";
 import Ifile from "../types/file";
 
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import { Box,IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 
 type Props = {
-  cinUpload : (cin:File) => void;
-}
+  cinUpload: (cin: File) => void;
+};
 
-const ImageUpload = ({cinUpload}: Props) => {
+const ImageUpload = ({ cinUpload }: Props) => {
   const [currentImage, setCurrentImage] = useState<File | undefined>();
   const [previewImage, setPreviewImage] = useState<string>("");
   const [progress, setProgress] = useState<number>(0);
@@ -17,11 +17,11 @@ const ImageUpload = ({cinUpload}: Props) => {
   const [imageInfos, setImageInfos] = useState<Array<Ifile>>([]);
 
   useEffect(() => {
-   /* FileUploadService.getFiles().then((response) => {
+    /* FileUploadService.getFiles().then((response) => {
       setImageInfos(response.data);
     });*/
-    if(currentImage) {
-      cinUpload(currentImage)
+    if (currentImage) {
+      cinUpload(currentImage);
     }
   }, [currentImage]);
 
@@ -60,23 +60,28 @@ const ImageUpload = ({cinUpload}: Props) => {
   };
 
   return (
-    <Box >
-        <IconButton
-        color="primary"
+    <Box>
+      <IconButton
+        sx={{
+          color: "#7874D6",
+        }}
         aria-label="upload picture"
         component="label"
-        onClick={upload}>
-        <input hidden accept=".pdf" type="file"  onChange={selectImage}/>
+        onClick={upload}
+      >
+        <input hidden accept=".pdf" type="file" onChange={selectImage} />
         <PhotoCamera />
-        </IconButton>
+      </IconButton>
 
-        {
-            previewImage && (
-                <Box>
-                    <img style={{width: "98%",height: "300px", marginTop:"-2rem"}} src={previewImage} alt="sary eto" />
-                </Box> ) 
-        }
-        
+      {previewImage && (
+        <Box>
+          <img
+            style={{ width: "98%", height: "300px", marginTop: "-2rem" }}
+            src={previewImage}
+            alt="sary eto"
+          />
+        </Box>
+      )}
     </Box>
     /*
     <div>
