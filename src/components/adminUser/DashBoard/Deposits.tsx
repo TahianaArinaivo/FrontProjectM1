@@ -57,6 +57,7 @@ export default function Deposits() {
                 flexWrap: "wrap",
                 marginLeft: "3rem",
                 marginBottom: "2rem",
+                fontFamily: "'Work Sans', sans-serif"
               }}
             >
               <Box >

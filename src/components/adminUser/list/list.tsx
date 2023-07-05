@@ -36,13 +36,13 @@ import PrintIcon from '@mui/icons-material/Print';
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
   {
-    field: "firstName",
+    field: "Nom",
     headerName: "First name",
     width: 150,
     editable: true,
   },
   {
-    field: "lastName",
+    field: "Prénom",
     headerName: "Last name",
     width: 150,
     editable: true,
@@ -54,13 +54,13 @@ const columns: GridColDef[] = [
     editable: true,
   },
   {
-    field: "Sexe",
+    field: "Sex",
     headerName: "Sexe",
     width: 120,
     editable: true,
   },
   {
-    field: "Phone",
+    field: "Téléphone",
     headerName: "Numéro Téléphone",
     width: 150,
     editable: true,
@@ -77,85 +77,14 @@ const columns: GridColDef[] = [
 const rows = [
   {
     id: 1,
-    lastName: "Aloy ",
-    firstName: "RAMANANDRAIBE",
+    Prénom: "Aloy ",
+    Nom: "RAMANANDRAIBE",
     adresse: "FBC 84",
-    Sexe: "Homme",
-    Phone: "0345162578",
+    Sex: "Homme",
+    Téléphone: "0345162578",
     cin: 169069269369,
   },
-  {
-    id: 2,
-    lastName: "Aloy ",
-    firstName: "RAMANANDRAIBE",
-    adresse: "FBC 84",
-    Sexe: "Homme",
-    Phone: "0345162578",
-    cin: 169069269369,
-  },
-  {
-    id: 3,
-    lastName: "Aloy ",
-    firstName: "RAMANANDRAIBE",
-    adresse: "FBC 84",
-    Sexe: "Homme",
-    Phone: "0345162578",
-    cin: 169069269369,
-  },
-  {
-    id: 4,
-    lastName: "Aloy ",
-    firstName: "RAMANANDRAIBE",
-    adresse: "FBC 84",
-    Sexe: "Homme",
-    Phone: "0345162578",
-    cin: 169069269369,
-  },
-  {
-    id: 5,
-    lastName: "Aloy ",
-    firstName: "RAMANANDRAIBE",
-    adresse: "FBC 84",
-    Sexe: "Homme",
-    Phone: "0345162578",
-    cin: 169069269369,
-  },
-  {
-    id: 6,
-    lastName: "Aloy ",
-    firstName: "RAMANANDRAIBE",
-    adresse: "FBC 84",
-    Sexe: "Homme",
-    Phone: "0345162578",
-    cin: 169069269369,
-  },
-  {
-    id: 7,
-    lastName: "Aloy ",
-    firstName: "RAMANANDRAIBE",
-    adresse: "FBC 84",
-    Sexe: "Homme",
-    Phone: "0345162578",
-    cin: 169069269369,
-  },
-  {
-    id: 8,
-    lastName: "Aloy ",
-    firstName: "RAMANANDRAIBE",
-    adresse: "FBC 84",
-    Sexe: "Homme",
-    Phone: "0345162578",
-    cin: 169069269369,
-  },
-  {
-    id: 9,
-    lastName: "Aloy ",
-    firstName: "RAMANANDRAIBE",
-    adresse: "FBC 84",
-    Sexe: "Homme",
-    Phone: "0345162578",
-    cin: 169069269369,
-  },
+  
 ];
 
 export default function List() {
@@ -188,10 +117,10 @@ export default function List() {
 
   return (
     <div>
-      <Typography sx={{ m: 1, pl: 3 }} variant="h4">
+      <Typography sx={{ m: 1, pl: 3,fontFamily: "'Work Sans', sans-serif" }} variant="h4">
         Liste
       </Typography>
-      <Box sx={{ height:"550px", width: "100%", p: 3 }}>
+      <Box sx={{ height:"550px", width: "100%", p: 3,fontFamily: "'Work Sans', sans-serif" }}>
         <DataGrid
           rows={rows}
           columns={columns}

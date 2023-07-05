@@ -16,13 +16,13 @@ export const TotalCustomers = (props:any) => (
             gutterBottom
             variant="overline"
           >
-            TOTAL CUSTOMERS
+            Femme
           </Typography>
           <Typography
             color="textPrimary"
             variant="h4"
           >
-            1,6k
+            1509000
           </Typography>
         </Grid>
         <Grid item>
@@ -57,7 +57,7 @@ export const TotalCustomers = (props:any) => (
           color="textSecondary"
           variant="caption"
         >
-          Since last month
+          enregistré recemment
         </Typography>
       </Box>
     </CardContent>

@@ -9,14 +9,14 @@ function NewUser() {
   return (
     <div>
         <Dialog open>
-        <DialogTitle>Nouvelle utilisateur</DialogTitle>
+        <DialogTitle sx={{fontFamily: "'Work Sans', sans-serif"}}>Nouvelle utilisateur</DialogTitle>
         <DialogContent>
-          <DialogContentText>
+          <DialogContentText sx={{p:2, fontFamily: "'Work Sans', sans-serif"}}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam officia odio,
-         minima beatae quam fugit, ad animi aut quibusdam facilis, sit fugiat architecto ut id mollitia quas voluptates reprehenderit tenetur.
-          </DialogContentText>
-          <Box sx={{justifyContent:"space-between"}}>
-          <TextField  id="firstNameId" fullWidth label="Nom" variant="outlined" sx={{marginBottom:"1rem"}} />
+         minima beatae quam fugit, ad animi aut quibusdam facilis,
+           </DialogContentText>
+          <Box sx={{justifyContent:"space-between",fontFamily: "'Work Sans', sans-serif"}}>
+          <TextField   id="firstNameId" fullWidth label="Nom" variant="outlined" sx={{marginBottom:"1rem"}} />
           <TextField  id="lastNameId" fullWidth label="Prenom" variant="outlined" sx={{marginBottom:"1rem"}} />
           <TextField  id="jobId" fullWidth label="Profession" variant="outlined" sx={{marginBottom:"1rem"}} />         
           <TextField  id="homeId" fullWidth label="Lieu" variant="outlined" sx={{marginBottom:"1rem"}} />

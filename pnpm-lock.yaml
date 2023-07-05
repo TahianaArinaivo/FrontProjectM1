@@ -22,6 +22,7 @@ specifiers:
   faker: ^6.6.6
   html5-file-selector: ^2.1.0
   http: 0.0.1-security
+  pdf-viewer-reactjs: ^2.2.3
   prop-types: ^15.8.1
   react: ^18.2.0
   react-chartjs-2: ^5.2.0
@@ -55,6 +56,7 @@ dependencies:
   faker: 6.6.6
   html5-file-selector: 2.1.0
   http: 0.0.1-security
+  pdf-viewer-reactjs: 2.2.3_biqbaboplfbrettd7655fr4n2y
   prop-types: 15.8.1
   react: 18.2.0
   react-chartjs-2: 5.2.0_jzw32sextkxj6pznyxerjojkqm
@@ -1402,6 +1404,11 @@ packages:
       csstype: 3.1.2
     dev: false
 
+  /dommatrix/1.0.3:
+    resolution: {integrity: sha512-l32Xp/TLgWb8ReqbVJAFIvXmY7go4nTxxlWiAFyhoQw9RKEOHBZNnyGvJWqDVSPmq3Y9HlM4npqF/T6VMOXhww==}
+    deprecated: dommatrix is no longer maintained. Please use @thednp/dommatrix.
+    dev: false
+
   /electron-to-chromium/1.4.419:
     resolution: {integrity: sha512-jdie3RiEgygvDTyS2sgjq71B36q2cDSBfPlwzUyuOrfYTNoYWyBxxjGJV/HAu3A2hB0Y+HesvCVkVAFoCKwCSw==}
     dev: true
@@ -1880,6 +1887,35 @@ packages:
   /path2d-polyfill/2.0.1:
     resolution: {integrity: sha512-ad/3bsalbbWhmBo0D6FZ4RNMwsLsPpL6gnvhuSaU5Vm7b06Kr5ubSltQQ0T7YKsiJQO+g22zJ4dJKNTXIyOXtA==}
     engines: {node: '>=8'}
+    dev: false
+
+  /pdf-viewer-reactjs/2.2.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-HM6ngxxnbztd/N/3dB+of3jSZtzS8CjcAoIfSWe7OY9Aqwb6cXLHbluCWc//cySXDdj3hhe8Wj5Wjg7T1ktxUA==}
+    peerDependencies:
+      bulma: '>=0.8.1'
+      bulma-helpers: '>=0.3.10'
+      material-design-icons: '>=3.0.1'
+      react: '>=16.8.6'
+      react-dom: '>=16.8.6'
+    dependencies:
+      pdfjs-dist: 2.16.105
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - worker-loader
+    dev: false
+
+  /pdfjs-dist/2.16.105:
+    resolution: {integrity: sha512-J4dn41spsAwUxCpEoVf6GVoz908IAA3mYiLmNxg8J9kfRXc2jxpbUepcP0ocp0alVNLFthTAM8DZ1RaHh8sU0A==}
+    peerDependencies:
+      worker-loader: ^3.0.8
+    peerDependenciesMeta:
+      worker-loader:
+        optional: true
+    dependencies:
+      dommatrix: 1.0.3
+      web-streams-polyfill: 3.2.1
     dev: false
 
   /pdfjs-dist/3.6.172:

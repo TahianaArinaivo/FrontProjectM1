@@ -105,14 +105,6 @@ export const Sales = (props:any) => {
   return (
     <Card {...props}>
       <CardHeader
-        action={(
-          <Button
-            endIcon={<ArrowDropDownIcon fontSize="small" />}
-            size="small"
-          >
-            Last 7 days
-          </Button>
-        )}
         title="Latest Sales"
       />
       <Divider />
@@ -138,13 +130,6 @@ export const Sales = (props:any) => {
           p: 2
         }}
       >
-        <Button
-          color="primary"
-          endIcon={<ArrowRightIcon fontSize="small" />}
-          size="small"
-        >
-          Overview
-        </Button>
       </Box>
     </Card>
   );

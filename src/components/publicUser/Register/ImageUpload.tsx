@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import FileUploadService from "../services/fileUploadService";
 import Ifile from "../types/file";
-import { Document, Page} from 'react-pdf';
-
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import { Box, IconButton } from "@mui/material";
 
@@ -60,27 +58,30 @@ const ImageUpload = ({ cinUpload }: Props) => {
       });
   };
 
-
-  const pdfUrl = {previewImage};
+  const pdfUrl = { previewImage };
   function PDFViewer() {
     return (
-      <div 
+      <div
         style={{
           marginLeft: "-200px",
           width: "100%",
-          height: "100%"
+          height: "100%",
         }}
       >
-        <embed src={previewImage} type="application/pdf" width="500%" height="310px" border-radius="20px" />
+        <embed
+          src={previewImage}
+          type="application/pdf"
+          width="500%"
+          height="310px"
+          border-radius="20px"
+        />
       </div>
     );
   }
-  
 
   return (
-    
-    <Box >
-        <IconButton
+    <Box>
+      <IconButton
         color="primary"
         aria-label="upload picture"
         component="label"
@@ -90,15 +91,12 @@ const ImageUpload = ({ cinUpload }: Props) => {
         <PhotoCamera />
       </IconButton>
 
-        {
-          previewImage && (
-            <Box>
-              <PDFViewer pdfUrl={pdfUrl} />
-            </Box> ) 
-        }
-        
+      {previewImage && (
+        <Box>
+          <PDFViewer pdfUrl={pdfUrl} />
+        </Box>
+      )}
     </Box>
-   
   );
 };
 

@@ -11,7 +11,7 @@ export const Budget = (props:any) => (
       <Grid
         container
         spacing={3}
-        sx={{ justifyContent: 'space-between' }}
+        sx={{ justifyContent: 'space-between',fontFamily: "'Work Sans', sans-serif" }}
       >
         <Grid item>
           <Typography
@@ -19,13 +19,13 @@ export const Budget = (props:any) => (
             gutterBottom
             variant="overline"
           >
-            BUDGET
+            Homme
           </Typography>
           <Typography
             color="textPrimary"
             variant="h4"
           >
-            $24k
+            1299000
           </Typography>
         </Grid>
         <Grid item>
@@ -61,7 +61,7 @@ export const Budget = (props:any) => (
           color="textSecondary"
           variant="caption"
         >
-          Since last month
+          Enregistré recemment
         </Typography>
       </Box>
     </CardContent>
