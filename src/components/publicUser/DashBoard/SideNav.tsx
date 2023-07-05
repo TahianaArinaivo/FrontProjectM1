@@ -94,7 +94,7 @@ export default function SideNavPublicUser(props: Props) {
                   alt="user profile"
                   width={"80"}
                   height={"80px"}
-                  src="https://avatars.githubusercontent.com/u/62210936?s=400&u=1d1d6b35732fefd1f1731c399d094aa130485089&v=4"
+                  src="/user.png"
                 />
               </Box>
               <Box textAlign="center">
@@ -109,7 +109,7 @@ export default function SideNavPublicUser(props: Props) {
                 >
                   Nirintsoa
                 </Typography>
-                <Typography variant="h3" color={colors.greenAccent[500]}>
+                <Typography variant="h3" color={colors.greenAccent[500]} sx={{fontFamily:"'Roboto Mono', monospace"}}>
                 CINDIA
                 </Typography>
               </Box>
@@ -129,7 +129,6 @@ export default function SideNavPublicUser(props: Props) {
               paddingLeft: "2px",
               webkitBoxFlex: 1,
               flexGrow: 1,
-              fontFamily: "cursive",
               fontWith: "12px",
               fontSize: "12px",
               fontWeight: "bold",
@@ -159,6 +158,7 @@ export default function SideNavPublicUser(props: Props) {
               <ListItemText
                 sx={{
                   paddingLeft: "25%",
+                  fontFamily: "'Work Sans', sans-serif",
                 }}
                 primary={item.title}
               />
@@ -243,7 +243,7 @@ export default function SideNavPublicUser(props: Props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3 , width: "100%" }}
+        sx={{ flexGrow: 1, p: 3 , width: "100%", }}
       >
         <ContentPublicUser />
 

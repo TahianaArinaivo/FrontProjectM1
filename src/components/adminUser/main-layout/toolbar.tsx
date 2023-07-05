@@ -113,7 +113,7 @@ export const ToolBar = () => {
         }}
       >
         <Box sx={{ width: "350", height: "auto" }}>
-          <Typography variant="h6" sx={{ pl: 2 }}>
+          <Typography variant="h6" sx={{ pl: 2,fontFamily: "'Work Sans', sans-serif" }}>
             Notification
           </Typography>
           {LIST_NOTIF.map((item, i) => {
@@ -132,7 +132,7 @@ export const ToolBar = () => {
                       fontSize: "0.8rem",
                       fontWeight: "100",
                       lineHeight: 1,
-                      fontFamily: "cursive",
+                      fontFamily: "'Work Sans', sans-serif"
                     }}
                   >
                     {item.title}
@@ -142,8 +142,8 @@ export const ToolBar = () => {
                       fontSize: "0,875rem",
                       fontWeight: "500",
                       lineHeight: 1.57,
-                      fontFamily: "initial",
                       color: "rgb(99, 102, 241)",
+                      fontFamily: "'Work Sans', sans-serif"
                     }}
                   >
                     {item.name}
@@ -153,7 +153,7 @@ export const ToolBar = () => {
                       fontSize: "12px",
                       fontWeight: "500",
                       lineHeight: 1.57,
-                      fontFamily: "initial",
+                      fontFamily: "'Work Sans', sans-serif",
                       color: "rgb(108, 115, 127)",
                     }}
                   >
@@ -175,7 +175,7 @@ export const ToolBar = () => {
           width: 40,
           ml: 2,
         }}
-        src="https://avatars.githubusercontent.com/u/62210936?s=400&u=1d1d6b35732fefd1f1731c399d094aa130485089&v=4"
+        src="/user.png"
       >
         <UserCircleIcon fontSize="small" />
       </Avatar>
@@ -189,6 +189,7 @@ export const ToolBar = () => {
         PaperProps={{
           elevation: 0,
           sx: {
+            fontFamily: "'Work Sans', sans-serif",
             overflow: "visible",
             filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
             mt: 1.5,

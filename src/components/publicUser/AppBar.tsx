@@ -72,7 +72,7 @@ const navigate = useNavigate();
       >
         <Toolbar>
           <Box component="div" sx={{ flexGrow: 1, marginLeft: 4 }}>
-            <Typography variant="h4" color={"#71DCEC"} sx={{fontFamily:"cursive",}}>
+            <Typography variant="h4" color={"#71DCEC"} sx={{fontFamily:"'Roboto Mono', monospace"}}>
               CINDIA
             </Typography>
           </Box>
@@ -87,7 +87,7 @@ const navigate = useNavigate();
               }}
               color="inherit"
             >
-              Home
+              Maison
             </Button>
             <Button
               onClick={() => scroll("about")}
@@ -99,7 +99,7 @@ const navigate = useNavigate();
               }}
               color="inherit"
             >
-              About
+              A propos
             </Button>
             <Button
               onClick={() => scroll("footer")}
@@ -126,7 +126,7 @@ const navigate = useNavigate();
           </Stack>
         </Toolbar>
       </AppBar>
-      <Dialog open={openDialogAuthenticate} onClose={handleClose}>
+      <Dialog sx={{backgrondColor:"rgba(0, 0, 0, 0.431"}} open={openDialogAuthenticate} onClose={handleClose}>
             <Authentification />
       </Dialog>
     </Box>

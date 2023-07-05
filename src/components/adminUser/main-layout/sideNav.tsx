@@ -113,7 +113,7 @@ export default function SideNav(props: Props) {
         <Typography
           variant="h5"
           color={theme.palette.mode === "dark" ? colors.grey[100] : "white"}
-          sx={{fontFamily:"cursive"}}
+          sx={{fontFamily: "'Work Sans', sans-serif",}}
         >
           ADMINS
         </Typography>
@@ -126,10 +126,10 @@ export default function SideNav(props: Props) {
             alt="user profile"
             width={"80"}
             height={"80px"}
-            src="https://avatars.githubusercontent.com/u/62210936?s=400&u=1d1d6b35732fefd1f1731c399d094aa130485089&v=4"
+            src="/user.png"
           />
         </Box>
-        <Box textAlign="center">
+        <Box textAlign="center" sx={{fontFamily: "'Work Sans', sans-serif",}}>
           <Typography
             variant="h2"
             color={theme.palette.mode === "dark" ? colors.grey[100] : "white"}
@@ -158,7 +158,7 @@ export default function SideNav(props: Props) {
               paddingLeft: "2px",
               webkitBoxFlex: 1,
               flexGrow: 1,
-              fontFamily: "cursive",
+              fontFamily: "'Work Sans', sans-serif",
               fontWith: "12px",
               fontSize: "12px",
               fontWeight: "bold",

@@ -160,7 +160,7 @@ export const ToolBarPublicUser = () => {
           width: 40,
           ml: 2,
         }}
-        src="https://avatars.githubusercontent.com/u/62210936?s=400&u=1d1d6b35732fefd1f1731c399d094aa130485089&v=4"
+        src="/user.png"
       >
         <UserCircleIcon fontSize="small" />
       </Avatar>

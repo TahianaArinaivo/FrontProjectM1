@@ -16,14 +16,14 @@ export const TrafficBySex = (props: any) => {
   const data = {
     datasets: [
       {
-        data: [63, 15, 22],
-        backgroundColor: ['#3F51B5', '#e53935', '#FB8C00'],
+        data: [53, 65],
+        backgroundColor: ['#3F51B5', '#e53935'],
         borderWidth: 8,
         borderColor: '#FFFFFF',
         hoverBorderColor: '#FFFFFF'
       }
     ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
+    labels: ['Homme', 'Femme']
   };
 
   const options = {
@@ -50,28 +50,22 @@ export const TrafficBySex = (props: any) => {
 
   const devices = [
     {
-      title: 'Desktop',
-      value: 63,
+      title: 'Homme',
+      value: 53,
       icon: LaptopMacIcon,
       color: '#3F51B5'
     },
     {
-      title: 'Tablet',
-      value: 15,
+      title: 'Femme',
+      value: 65,
       icon: TabletIcon,
       color: '#E53935'
     },
-    {
-      title: 'Mobile',
-      value: 23,
-      icon: PhoneIcon,
-      color: '#FB8C00'
-    }
   ];
 
   return (
     <Card  {...props}>
-      <CardHeader title="Traffic by Device" />
+      <CardHeader title="Traffique " />
       <Divider />
       <CardContent>
         <Box

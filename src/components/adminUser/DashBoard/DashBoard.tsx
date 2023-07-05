@@ -24,7 +24,7 @@ import Orders from "./Orders";
 export default function Home() {
   return (
     <>
-      <Typography sx={{ m: 1,pl: 3 }} variant="h4">
+      <Typography sx={{ m: 1,pl: 3,fontFamily: "'Work Sans', sans-serif" }} variant="h4">
         Tableau de bord
       </Typography>
       <Box>

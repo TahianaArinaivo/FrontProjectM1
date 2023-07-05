@@ -41,6 +41,7 @@ function ProfileAdminUser() {
           display: "flex",
           flexGrow: 1,
           mt: "6rem",
+          fontFamily: "'Work Sans', sans-serif",
         }}
       >
         <Grid container spacing={1}>
@@ -55,7 +56,7 @@ function ProfileAdminUser() {
                   }}
                 >
                   <Avatar
-                    src="https://avatars.githubusercontent.com/u/62210936?s=400&u=1d1d6b35732fefd1f1731c399d094aa130485089&v=4"
+                    src="/user.png"
                     sx={{
                       height: 64,
                       mb: 2,

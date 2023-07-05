@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import FileUploadService from "../services/fileUploadService";
 import Ifile from "../types/file";
-
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import { Box,IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 
 type Props = {
-  cinUpload : (cin:File) => void;
-}
+  cinUpload: (cin: File) => void;
+};
 
-const ImageUpload = ({cinUpload}: Props) => {
+const ImageUpload = ({ cinUpload }: Props) => {
   const [currentImage, setCurrentImage] = useState<File | undefined>();
   const [previewImage, setPreviewImage] = useState<string>("");
   const [progress, setProgress] = useState<number>(0);
@@ -17,11 +16,11 @@ const ImageUpload = ({cinUpload}: Props) => {
   const [imageInfos, setImageInfos] = useState<Array<Ifile>>([]);
 
   useEffect(() => {
-   /* FileUploadService.getFiles().then((response) => {
+    /* FileUploadService.getFiles().then((response) => {
       setImageInfos(response.data);
     });*/
-    if(currentImage) {
-      cinUpload(currentImage)
+    if (currentImage) {
+      cinUpload(currentImage);
     }
   }, [currentImage]);
 
@@ -59,88 +58,45 @@ const ImageUpload = ({cinUpload}: Props) => {
       });
   };
 
+  const pdfUrl = { previewImage };
+  function PDFViewer() {
+    return (
+      <div
+        style={{
+          marginLeft: "-200px",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <embed
+          src={previewImage}
+          type="application/pdf"
+          width="500%"
+          height="310px"
+          border-radius="20px"
+        />
+      </div>
+    );
+  }
+
   return (
-    <Box >
-        <IconButton
+    <Box>
+      <IconButton
         color="primary"
         aria-label="upload picture"
         component="label"
-        onClick={upload}>
-        <input hidden accept=".pdf" type="file"  onChange={selectImage}/>
+        onClick={upload}
+      >
+        <input hidden accept=".pdf" type="file" onChange={selectImage} />
         <PhotoCamera />
-        </IconButton>
-
-        {
-            previewImage && (
-                <Box>
-                    <img style={{width: "98%",height: "300px", marginTop:"-2rem"}} src={previewImage} alt="sary eto" />
-                </Box> ) 
-        }
-        
-    </Box>
-    /*
-    <div>
-      <div className="row">
-        <div className="col-8">
-          <label className="btn btn-default p-0">
-            <input type="file" accept="image/*" onChange={selectImage} />
-          </label>
-        </div>
-
-        <div className="col-4">
-          <button
-            className="btn btn-success btn-sm"
-            disabled={!currentImage}
-            onClick={upload}
-          >
-            Upload
-          </button>
-        </div>
-      </div>
-
-      {currentImage && progress > 0 && (
-        <div className="progress my-3">
-          <div
-            className="progress-bar progress-bar-info"
-            role="progressbar"
-            aria-valuenow={progress}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            style={{ width: progress + "%" }}
-          >
-            {progress}%
-          </div>
-        </div>
-      )}
+      </IconButton>
 
       {previewImage && (
-        <div>
-          <img className="preview" src={previewImage} alt="" />
-        </div>
+        <Box>
+          <PDFViewer pdfUrl={pdfUrl} />
+        </Box>
       )}
-
-      {message && (
-        <div className="alert alert-secondary mt-3" role="alert">
-          {message}
-        </div>
-      )}
-
-      {imageInfos.length > 0 && (
-        <div className="card mt-3">
-          <div className="card-header">List of Images</div>
-          <ul className="list-group list-group-flush">
-            {imageInfos.map((img, index) => (
-              <li className="list-group-item" key={index}>
-                <p>
-                  <a href={img.url}>{img.name}</a>
-                </p>
-                <img src={img.url} alt={img.name} height="80px" />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>*/
+    </Box>
   );
 };
 

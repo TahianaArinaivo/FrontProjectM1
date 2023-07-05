@@ -3,7 +3,7 @@ import React from 'react'
 
 function Residence() {
   return (
-    <Box sx={{p:"1rem"}}>
+    <Box sx={{p:"1rem",fontFamily: "'Work Sans', sans-serif"}}>
         <Box sx={{textAlign:"center",mb:1}}>
             <Typography sx={{fontSize:"10px"}}>
                 REPOBLIKAN'I MADAGASIKARA

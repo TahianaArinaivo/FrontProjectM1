@@ -79,6 +79,7 @@ function FaqPage() {
               flexDirection:"column",
               height: "100%",
               ml: "1rem",
+              fontFamily: "'Work Sans', sans-serif",
             }}
           >
             <CardContent>

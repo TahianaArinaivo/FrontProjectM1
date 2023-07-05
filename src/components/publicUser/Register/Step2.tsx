@@ -7,16 +7,16 @@ import {
   InputLabel,
   OutlinedInput,
 } from "@mui/material";
+import Input from "@mui/joy/Input";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 interface Props {
-  handlePassword? : (password:string) => void
-  handlePhone? : (phone: string) => void
+  handlePassword?: (password: string) => void;
+  handlePhone?: (phone: string) => void;
 }
 
 function Step2(props: Props) {
-
-  const [showPassword, setShowPassword] = React.useState(false);  
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (
@@ -26,29 +26,38 @@ function Step2(props: Props) {
   };
 
   return (
-    <div>
-        <Box
+    <>
+      <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
-          alignContent:"center",
+          alignContent: "center",
           flexDirection: "column",
-          m: "3rem",
+          mt: "10rem",
+          height: "500px",
         }}
       >
         <FormControl sx={{ m: 1, width: "35ch" }} variant="outlined">
-          <InputLabel>Téléphone</InputLabel>
-          <OutlinedInput id="email" label="phone" onChange={(e) => props?.handlePhone?.(e.target.value)} />
+          <Input
+            id="email"
+            onChange={(e) => props?.handlePhone?.(e.target.value)}
+         
+            size="lg"
+            placeholder="Téléphone"
+            variant="outlined" 
+            color="info"
+          />
         </FormControl>
         <FormControl sx={{ m: 1, width: "35ch" }} variant="outlined">
-          <InputLabel>Mot de passe</InputLabel>
-          <OutlinedInput
+          <Input
             id="passwordId"
             type={showPassword ? "text" : "password"}
-            label="Mot de passe"
-            onChange={(e) => props?.handlePassword?.(e.target.value)} 
-            endAdornment={
+            size="lg"
+            placeholder="Mot de passe"
+            variant="outlined" 
+            color="info"
+            onChange={(e) => props?.handlePassword?.(e.target.value)}
+            endDecorator={
               <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
@@ -56,15 +65,15 @@ function Step2(props: Props) {
                   onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                  {showPassword ? <VisibilityOff sx={{color:"#f1f1f1"}} /> : <Visibility sx={{color:"#f1f1f1"}} />}
                 </IconButton>
               </InputAdornment>
             }
           />
         </FormControl>
       </Box>
-    </div>
-  )
+    </>
+  );
 }
 
-export default Step2
+export default Step2;

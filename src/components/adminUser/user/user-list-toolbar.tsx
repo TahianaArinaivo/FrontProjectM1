@@ -26,10 +26,10 @@ export const UserListToolbar = (props: any) => {
           m: -1,
         }}
       >
-        <Typography sx={{ m: 1 }} variant="h4">
+        <Typography sx={{ m: 1,fontFamily: "'Work Sans', sans-serif" }} variant="h4">
           Utilisateurs
         </Typography>
-        <Box sx={{ m: 1 }}>
+        <Box sx={{ m: 1,fontFamily: "'Work Sans', sans-serif" }}>
           <Button color="primary" variant="contained" onClick={() => setShowDialog(true)}>
             Nouvelle utilisateur
           </Button>

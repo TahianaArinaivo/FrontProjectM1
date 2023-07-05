@@ -8,8 +8,8 @@ import NewUser from "./newUser";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 50 },
-  { field: "firstName", headerName: "First name", width: 190 },
-  { field: "lastName", headerName: "Last name", width: 190 },
+  { field: "Nom", headerName: "Nom", width: 190 },
+  { field: "Prénom", headerName: "Prénom", width: 190 },
   {
     field: "age",
     headerName: "Age",
@@ -17,26 +17,18 @@ const columns: GridColDef[] = [
     width: 90,
   },
   {
-    field: "fullName",
-    headerName: "Full name",
+    field: "Nom complet",
+    headerName: "Nom complet",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 160,
     valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+      `${params.row.Nom || ""} ${params.row.Prénom || ""}`,
   },
 ];
 
 const rows = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: 45 },
-  { id: 6, lastName: "Melisandre", firstName: "Delfer", age: 150 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+  { id: 1, Prénom: "Snow", Nom: "Jon", age: 35 },
 ];
 
 export default function UserListResults() {
@@ -55,7 +47,7 @@ export default function UserListResults() {
   };
 
   return (
-    <Box sx={{ height: 400, width: '100%' }}>
+    <Box sx={{ height: 400, width: '100%',fontFamily: "'Work Sans', sans-serif" }}>
       <DataGrid
         rows={rows}
         columns={columns}
