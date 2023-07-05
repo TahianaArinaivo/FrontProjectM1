@@ -29,73 +29,53 @@ export const CinAnalysResult = ({ data }: Props) => {
       }}
     >
       <Box sx={{ fontFamily: "cursive", display: "flex" }}>
-        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Nom:</Typography>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Nom :</Typography>
         <Typography sx={{ textDecoration: "none" }}>{data?.name}</Typography>
       </Box>
-      <Typography
-        sx={{
-          fontFamily: "cursive",
-          textDecoration: "underline",
-        }}
-      >
-        Prénom(s):
-        <Typography sx={{ textDecoration: "none" }}>
-          {data?.lastName}
-        </Typography>
-      </Typography>
-      <Typography sx={{ fontFamily: "cursive", textDecoration: "underline" }}>
-        Date de naissance:
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Prénom(s) :</Typography>
+        <Typography sx={{ textDecoration: "none" }}>{data?.lastName}</Typography>
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Né le :</Typography>
         <Typography sx={{ textDecoration: "none" }}>{data?.birth}</Typography>
-      </Typography>
-      <Typography
-        sx={{
-          fontFamily: "cursive",
-          textDecoration: "underline",
-        }}
-      >
-        Lieu de naissance:
-        <Typography sx={{ textDecoration: "none" }}>
-          {data?.birthplace}
-        </Typography>
-      </Typography>
-      <Typography sx={{ fontFamily: "cursive", textDecoration: "underline" }}>
-        Numéro CIN:
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Né à :</Typography>
+        <Typography sx={{ textDecoration: "none" }}>{data?.birthplace}</Typography>
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Numéro CIN :</Typography>
         <Typography sx={{ textDecoration: "none" }}>{data?.numCIN}</Typography>
-      </Typography>
-      <Typography sx={{ fontFamily: "cursive", textDecoration: "underline" }}>
-        Adresse:
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Adresse :</Typography>
         <Typography sx={{ textDecoration: "none" }}>{data?.address}</Typography>
-      </Typography>
-      <Typography sx={{ fontFamily: "cursive", textDecoration: "underline" }}>
-        District:
-        <Typography sx={{ textDecoration: "none" }}>
-          {data?.district}
-        </Typography>
-      </Typography>
-      <Typography sx={{ fontFamily: "cursive", textDecoration: "underline" }}>
-        Profession:
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>District :</Typography>
+        <Typography sx={{ textDecoration: "none" }}>{data?.district}</Typography>
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Profession :</Typography>
         <Typography sx={{ textDecoration: "none" }}>{data?.job}</Typography>
-      </Typography>
-      <Typography sx={{ fontFamily: "cursive", textDecoration: "underline" }}>
-        Nom du père:
-        <Typography sx={{ textDecoration: "none" }}>
-          {data?.fatherName}
-        </Typography>
-      </Typography>
-      <Typography sx={{ fontFamily: "cursive", textDecoration: "underline" }}>
-        Nom de la mère:
-        <Typography sx={{ textDecoration: "none" }}>
-          {data?.motherName}
-        </Typography>
-      </Typography>
-      <Typography sx={{ fontFamily: "cursive", textDecoration: "underline" }}>
-        Fait à :
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Nom du père :</Typography>
+        <Typography sx={{ textDecoration: "none" }}>{data?.fatherName}</Typography>
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Nom de la mère:</Typography>
+        <Typography sx={{ textDecoration: "none" }}>{data?.motherName}</Typography>
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Fait à :</Typography>
         <Typography sx={{ textDecoration: "none" }}>{data?.doneAt}</Typography>
-      </Typography>
-      <Typography sx={{ fontFamily: "cursive", textDecoration: "underline" }}>
-        Fait le:
+      </Box>
+      <Box sx={{ fontFamily: "cursive", display: "flex" }}>
+        <Typography sx={{ textDecoration: "underline", marginRight: "10px"}}>Fait le :</Typography>
         <Typography sx={{ textDecoration: "none" }}>{data?.on}</Typography>
-      </Typography>
+      </Box>
     </Box>
   );
 };
