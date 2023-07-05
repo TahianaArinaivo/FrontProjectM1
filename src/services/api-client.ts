@@ -7,10 +7,12 @@ export const axiosInstance = axios.create({
 class APICLIENT<T> {
   endpoint: string;
   fn?: (cin: File) => FormData;
+  id?: string;
 
   constructor(endpoint: string, fn?: (cin: File) => FormData) {
     this.endpoint = endpoint;
     this.fn = fn;
+    
   }
 
   postCin = (cin: File) => {
@@ -30,6 +32,33 @@ class APICLIENT<T> {
   post(data: any) {
     return axiosInstance
       .post<T>(this.endpoint, data)
+      .then((res) => res.data)
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  get() {
+    return axiosInstance
+      .get<T>(!this?.id ? this.endpoint: `${this.endpoint}/${this.id}`)
+      .then(res => res.data)
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  put(data: any) {
+    return axiosInstance
+      .put<T>(this.endpoint, data)
+      .then((res) => res.data)
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  delete(data: any) {
+    return axiosInstance
+      .delete<T>(this.endpoint, data)
       .then((res) => res.data)
       .catch((err) => {
         throw err;
