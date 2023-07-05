@@ -23,19 +23,68 @@ interface Props {
 
 export const CinAnalysResult = ({data}: Props) => {
   return (
-    <Box>
-        <Typography>Nom: {data?.name}</Typography>
-        <Typography>Prénom(s): {data?.lastName}</Typography>
-        <Typography>Date de naissance: {data?.birth}</Typography>
-        <Typography>Lieu de naissance: {data?.birthplace}</Typography>
-        <Typography>Numéro CIN: {data?.numCIN}</Typography>
-        <Typography>Adresse: {data?.address}</Typography>
-        <Typography>District: {data?.district}</Typography>
-        <Typography>Profession: {data?.job}</Typography>
-        <Typography>Nom du père: {data?.fatherName}</Typography>
-        <Typography>Nom de la mère: {data?.motherName}</Typography>
-        <Typography>Fait à : {data?.doneAt}</Typography>
-        <Typography>Fait le: {data?.on}</Typography>
+    <Box
+      sx={{
+        padding:2,fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+      }}>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"}}
+        >Nom: 
+        <Typography sx={{textDecoration: "none"}}>{data?.name}</Typography></Typography>
+        <Typography
+          sx={{
+            fontFamily: "cursive",fontSize: 18,textDecoration: "underline"}}
+        >Prénom(s): 
+        <Typography sx={{textDecoration: "none"}}>{data?.lastName}</Typography></Typography>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}
+        >Date de naissance: 
+        <Typography sx={{textDecoration: "none"}}>{data?.birth}</Typography></Typography>
+        <Typography
+          sx={{
+            fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}
+        >Lieu de naissance: 
+        <Typography sx={{textDecoration: "none"}}>{data?.birthplace}</Typography></Typography>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}
+        >Numéro CIN: 
+        <Typography sx={{textDecoration: "none"}}>{data?.numCIN}</Typography></Typography>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}
+        >Adresse: 
+        <Typography sx={{textDecoration: "none"}}>{data?.address}</Typography></Typography>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}
+        >District: 
+        <Typography sx={{textDecoration: "none"}}>{data?.district}</Typography></Typography>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}
+        >Profession: 
+        <Typography sx={{textDecoration: "none"}}>{data?.job}</Typography></Typography>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}
+        >Nom du père: 
+        <Typography sx={{textDecoration: "none"}}>{data?.fatherName}</Typography></Typography>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}
+        >Nom de la mère: 
+        <Typography sx={{textDecoration: "none"}}>{data?.motherName}</Typography></Typography>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}>Fait à : 
+          <Typography sx={{textDecoration: "none"}}>{data?.doneAt}</Typography></Typography>
+        <Typography
+          sx={{fontFamily: "cursive",fontSize: 18,textDecoration: "underline"
+          }}>Fait le: 
+          <Typography sx={{textDecoration: "none"}}>{data?.on}</Typography></Typography>
     </Box>
   )
 }

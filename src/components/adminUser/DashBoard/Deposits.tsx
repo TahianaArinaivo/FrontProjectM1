@@ -32,7 +32,7 @@ const LIST: Props[] = [
     color: "#00b0ff",
   },
   {
-    title: "TOTAL ENREGISTRER",
+    title: "TOTAL ENREGISTRES",
     nbr: 100658,
     progress: 30,
     color: "#64dd17",
