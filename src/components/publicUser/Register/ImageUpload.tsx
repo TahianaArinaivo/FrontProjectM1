@@ -63,7 +63,7 @@ const ImageUpload = ({ cinUpload }: Props) => {
     return (
       <div
         style={{
-          marginLeft: "-200px",
+          marginLeft: "-160px",
           width: "100%",
           height: "100%",
         }}
@@ -71,7 +71,7 @@ const ImageUpload = ({ cinUpload }: Props) => {
         <embed
           src={previewImage}
           type="application/pdf"
-          width="500%"
+          width="328%"
           height="310px"
           border-radius="20px"
         />
@@ -82,6 +82,11 @@ const ImageUpload = ({ cinUpload }: Props) => {
   return (
     <Box>
       <IconButton
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center"
+        }}
         color="primary"
         aria-label="upload picture"
         component="label"

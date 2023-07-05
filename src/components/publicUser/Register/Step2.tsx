@@ -35,13 +35,23 @@ function Step2(props: Props) {
           flexDirection: "column",
           mt: "10rem",
           height: "500px",
+          marginTop: "100px"
         }}
       >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            border: "dotted 2px white",
+            borderRadius: 2,
+            padding: 7,
+          }}
+        >
         <FormControl sx={{ m: 1, width: "35ch" }} variant="outlined">
           <Input
             id="email"
             onChange={(e) => props?.handlePhone?.(e.target.value)}
-         
+            type="tel"            
             size="lg"
             placeholder="Téléphone"
             variant="outlined" 
@@ -71,6 +81,7 @@ function Step2(props: Props) {
             }
           />
         </FormControl>
+        </Box>
       </Box>
     </>
   );
