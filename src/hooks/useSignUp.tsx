@@ -10,7 +10,7 @@ export const useSignUp = () => {
   return {
     error: mutation.isError,
     isLoading: mutation.isLoading,
-    signIn: mutation.mutate,
+    signUp: mutation.mutate,
     isSuccess: mutation.isSuccess,
     data: mutation.data,
   };
