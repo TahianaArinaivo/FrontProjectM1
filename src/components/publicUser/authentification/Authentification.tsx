@@ -55,6 +55,8 @@ export default function AuthenticationUser() {
 
   React.useEffect(() => {
     if(isSuccess) {
+      localStorage.setItem("token", userAuth?.token ? userAuth.token: "");
+      localStorage.setItem("userId", userAuth?.user?.userId? userAuth?.user?.userId: "");
       navigate("/utilisateur/dashboard");
     }
   }, [isSuccess]);

@@ -58,7 +58,7 @@ export default function Register() {
   const [user, setUser] = useRecoilState(userAtom);
   const [phone, setPhone] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
-  const { data, isLoading, error, signIn } = useSignUp();
+  const { data, isLoading, isSuccess, error, signIn } = useSignUp();
 
 
   const handleNext = () => {
@@ -81,14 +81,15 @@ export default function Register() {
         FathersName: user?.fatherName,
         MothersName: user?.motherName,
         PlaceOfIssue: "antananarivo",
-        Sex: "Feminin",
+        Sex: "Masculin",
         Tel: user?.phone,
         NumCIN: user?.numCIN,
         ScanCIN: "localhost://test",
         Password: user?.password,
         SectionId: 1,
         UserCasierId: 1,
-        UserDistrictId: 1
+        UserDistrictId: 1,
+        Role: "public"
       };
       signIn(data);
     }
@@ -103,12 +104,10 @@ export default function Register() {
   };
 
   const handlePassword = (password: string) => {
-    console.log("password:", password);
     setPassword(password);
   };
 
   const handlePhone = (phone: string) => {
-    console.log("phone:", phone);
     setPhone(phone);
   };
 
@@ -121,6 +120,12 @@ export default function Register() {
       backgroundColor: "#3E3D6C",
     },
   }));
+
+  React.useEffect(() => {
+    if(isSuccess) {
+      navigate('/utilisateur/dashboard/*');
+    }
+  }, [isSuccess])
 
   return (
     <Box
