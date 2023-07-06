@@ -1,6 +1,6 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
+import Button, { ButtonProps } from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -16,7 +16,17 @@ import homeBg from "/home-bg.png";
 import { useNavigate } from "react-router-dom";
 import { Credentials } from "../types/Auth";
 import { useSignIn } from "../../../hooks/useSignIn";
-import { Stack } from "@mui/material";
+import {
+  FormControl,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  Stack,
+  styled,
+} from "@mui/material";
+import { green } from "@mui/material/colors";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 function Copyright(props: any) {
   return (
@@ -41,6 +51,24 @@ const theme = createTheme();
 export default function AuthenticationUser() {
   const navigate = useNavigate();
   const { signIn, isLoading, error, data: userAuth, isSuccess } = useSignIn();
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
+
+  const ColorButtonLog = styled(Button)<ButtonProps>(({ theme }) => ({
+    color: theme.palette.getContrastText(green[700]),
+    fontSize: 12,
+    backgroundColor: "#7874D6",
+    borderRadius: 15,
+    "&:hover": {
+      backgroundColor: "#3E3D6C",
+    },
+  }));
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -54,9 +82,12 @@ export default function AuthenticationUser() {
   };
 
   React.useEffect(() => {
-    if(isSuccess) {
-      localStorage.setItem("token", userAuth?.token ? userAuth.token: "");
-      localStorage.setItem("userId", userAuth?.user?.userId? userAuth?.user?.userId: "");
+    if (isSuccess) {
+      localStorage.setItem("token", userAuth?.token ? userAuth.token : "");
+      localStorage.setItem(
+        "userId",
+        userAuth?.user?.userId ? userAuth?.user?.userId : ""
+      );
       navigate("/utilisateur/dashboard");
     }
   }, [isSuccess]);
@@ -88,6 +119,7 @@ export default function AuthenticationUser() {
               sx={{ mt: 1 }}
             >
               <TextField
+                sx={{ borderRadius: "15px", mb: "2rem" }}
                 margin="normal"
                 required
                 fullWidth
@@ -98,20 +130,37 @@ export default function AuthenticationUser() {
                 autoFocus
                 color="secondary"
               />
-              <TextField
-                margin="normal"
+              <FormControl
+                variant="outlined"
+                color="secondary"
                 required
                 fullWidth
-                name="password"
-                label="Mot de passe"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                color="secondary"
-              />
+              >
+                <InputLabel htmlFor="outlined-adornment-password">
+                  Mot de passe
+                </InputLabel>
+                <OutlinedInput
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Mot de passe"
+                />
+              </FormControl>
 
               <Stack>
-                <Button
+                <ColorButtonLog
                   //onClick={() => navigate("/utilisateur/dashboard")}
                   type="submit"
                   fullWidth
@@ -119,7 +168,7 @@ export default function AuthenticationUser() {
                   sx={{ mt: 3, mb: 2 }}
                 >
                   Se connecter
-                </Button>
+                </ColorButtonLog>
               </Stack>
               <Grid container>
                 <Grid item xs>
