@@ -22,6 +22,7 @@ specifiers:
   faker: ^6.6.6
   html5-file-selector: ^2.1.0
   http: 0.0.1-security
+  moment: ^2.29.4
   pdf-viewer-reactjs: ^2.2.3
   prop-types: ^15.8.1
   react: ^18.2.0
@@ -56,6 +57,7 @@ dependencies:
   faker: 6.6.6
   html5-file-selector: 2.1.0
   http: 0.0.1-security
+  moment: 2.29.4
   pdf-viewer-reactjs: 2.2.3_biqbaboplfbrettd7655fr4n2y
   prop-types: 15.8.1
   react: 18.2.0

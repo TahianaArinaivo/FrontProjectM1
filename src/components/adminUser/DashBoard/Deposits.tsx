@@ -6,49 +6,47 @@ import { Paper, Box, Grid } from "@mui/material";
 import CircularProgress, {
   CircularProgressProps,
 } from "@mui/material/CircularProgress";
+import { User } from "../../publicUser/types/User";
+import { useStatSex } from "../../../hooks/useStatSex";
 
-function preventDefault(event: React.MouseEvent) {
-  event.preventDefault();
-}
 
 interface Props {
-  title: string;
-  nbr: number;
-  progress: number;
-  color: string;
+  users?: User[];
 }
 
-const LIST: Props[] = [
-  {
-    title: "HOMME",
-    nbr: 100658,
-    progress: 60,
-    color: "#e57373",
-  },
-  {
-    title: "FEMME",
-    nbr: 100658,
-    progress: 40,
-    color: "#00b0ff",
-  },
-  {
-    title: "TOTAL ENREGISTRES",
-    nbr: 100658,
-    progress: 30,
-    color: "#64dd17",
-  },
-];
-
-export default function Deposits() {
+export default function Deposits({ users }: Props) {
+  const { feminins, masculins, total } = useStatSex(users);
+  const List = React.useMemo(() => {
+    return [
+      {
+        title: "HOMME",
+        nbr: masculins,
+        progress: masculins && masculins != 0 ? (masculins * 100) / total : 0,
+        color: "#e57373",
+      },
+      {
+        title: "FEMME",
+        nbr: feminins,
+        progress: feminins && feminins != 0 ? (feminins * 100) / total : 0,
+        color: "#00b0ff",
+      },
+      {
+        title: "TOTAL ENREGISTRES",
+        nbr: total,
+        progress: 100,
+        color: "#64dd17",
+      },
+    ];
+  }, [users]);
   return (
-    <Grid container >
-      {LIST.map((item, i) => {
+    <Grid container>
+      {List.map((item, i) => {
         return (
-          <React.Fragment  key={i}>
+          <React.Fragment key={i}>
             <Grid
-            spacing={1}
+              spacing={1}
               item
-              lg={3} 
+              lg={3}
               sm={3}
               xs={12}
               sx={{
@@ -57,10 +55,10 @@ export default function Deposits() {
                 flexWrap: "wrap",
                 marginLeft: "3rem",
                 marginBottom: "2rem",
-                fontFamily: "'Work Sans', sans-serif"
+                fontFamily: "'Work Sans', sans-serif",
               }}
             >
-              <Box >
+              <Box>
                 <Box>
                   <Paper
                     sx={{
@@ -68,7 +66,7 @@ export default function Deposits() {
                       flexDirection: "column",
                       height: "auto",
                       marginTop: "2rem",
-                      width: "250px"
+                      width: "250px",
                     }}
                   >
                     <Grid container sx={{ p: 1 }}>

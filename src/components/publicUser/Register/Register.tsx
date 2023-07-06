@@ -58,7 +58,7 @@ export default function Register() {
   const [user, setUser] = useRecoilState(userAtom);
   const [phone, setPhone] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
-  const { data, isLoading, isSuccess, error, signIn } = useSignUp();
+  const { data, isLoading, isSuccess, error, signUp } = useSignUp();
 
 
   const handleNext = () => {
@@ -91,7 +91,7 @@ export default function Register() {
         UserDistrictId: 1,
         Role: "public"
       };
-      signIn(data);
+      signUp(data);
     }
     setActiveStep((prevStep) => prevStep + 1);
   };
@@ -123,7 +123,7 @@ export default function Register() {
 
   React.useEffect(() => {
     if(isSuccess) {
-      navigate('/utilisateur/dashboard/*');
+      navigate('/');
     }
   }, [isSuccess])
 

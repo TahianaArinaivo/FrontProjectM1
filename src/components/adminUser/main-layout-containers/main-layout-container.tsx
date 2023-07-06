@@ -7,7 +7,7 @@ import Content from '../contents/content';
 import SideNav from '../main-layout/sideNav';
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import List from '../list/list';
+import List from '../list/List';
 
 export default function MainLayoutContainer() {
   return(

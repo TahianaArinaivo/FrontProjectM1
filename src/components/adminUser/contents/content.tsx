@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import Home from "../DashBoard/DashBoard";
 import User from "../user/user";
 import Stats from "../Statistic/stats";
-import List from "../list/list";
+import List from "../list/List";
 import ProfileAdminUser from "../main-layout/profile";
 
 const drawerWidth = 220;

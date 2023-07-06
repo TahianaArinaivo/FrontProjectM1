@@ -6,6 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './Title';
+import { User } from '../../publicUser/types/User';
 
 // Generate Order Data
 function createData(
@@ -55,11 +56,15 @@ const rows = [
   ),
 ];
 
+interface Props {
+  users?: User[]
+}
+
 function preventDefault(event: React.MouseEvent) {
   event.preventDefault();
 }
 
-export default function Orders() {
+export default function Orders({users}: Props) {
   return (
     <React.Fragment>
       <Title>Recemment enregistrés</Title>
@@ -74,13 +79,13 @@ export default function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{`${row.amount}`}</TableCell>
+          {users?.map((user,i) => (
+            <TableRow key={i}>
+              <TableCell>{user.createdAt}</TableCell>
+              <TableCell>{user.name}</TableCell>
+              <TableCell>{user.firstName}</TableCell>
+              <TableCell>{user.numCIN}</TableCell>
+              <TableCell align="right">{`${user.sex}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>
