@@ -1,8 +1,11 @@
 import { CIN } from "../Register/CinAnalysResult";
 
 export type User = CIN & {
-    phone?: string;
+    tel?: string;
     password?: string;
     role?: string;
-    userId?: string
+    userId?: string,
+    sex?: string;
+    createdAt?: string;
+    firstName?: string; 
 }

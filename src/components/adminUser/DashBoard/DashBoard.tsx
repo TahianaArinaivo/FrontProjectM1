@@ -20,17 +20,22 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
+import { useGetUser } from "../../../hooks/useUser";
 
 export default function Home() {
+  const { data } = useGetUser();
+  
   return (
     <>
-      <Typography sx={{ m: 1,pl: 3,fontFamily: "'Work Sans', sans-serif" }} variant="h4">
+      <Typography
+        sx={{ m: 1, pl: 3, fontFamily: "'Work Sans', sans-serif" }}
+        variant="h4"
+      >
         Tableau de bord
       </Typography>
       <Box>
         <Container maxWidth="lg" sx={{ mt: 1, mb: 4 }}>
-          <Deposits />
-
+          <Deposits users={data?.result} />
           <Paper
             sx={{
               p: 2,
@@ -39,11 +44,11 @@ export default function Home() {
               height: 240,
             }}
           >
-            <Chart />
+            <Chart users={data?.result} />
           </Paper>
 
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-            <Orders />
+            <Orders users={data?.result} />
           </Paper>
         </Container>
       </Box>

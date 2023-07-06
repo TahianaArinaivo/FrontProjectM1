@@ -32,18 +32,19 @@ import BookIcon from "@mui/icons-material/Book";
 import { token } from "../../../theme";
 import Residence from "./Residence";
 import PrintIcon from '@mui/icons-material/Print';
+import { useGetUser } from "../../../hooks/useUser";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
   {
     field: "Nom",
-    headerName: "First name",
+    headerName: "Nom",
     width: 150,
     editable: true,
   },
   {
-    field: "Prénom",
-    headerName: "Last name",
+    field: "Prenom",
+    headerName: "Prénom",
     width: 150,
     editable: true,
   },
@@ -60,7 +61,7 @@ const columns: GridColDef[] = [
     editable: true,
   },
   {
-    field: "Téléphone",
+    field: "Telepone",
     headerName: "Numéro Téléphone",
     width: 150,
     editable: true,
@@ -77,7 +78,7 @@ const columns: GridColDef[] = [
 const rows = [
   {
     id: 1,
-    Prénom: "Aloy ",
+    Prenom: "Aloy ",
     Nom: "RAMANANDRAIBE",
     adresse: "FBC 84",
     Sex: "Homme",
@@ -91,6 +92,27 @@ export default function List() {
   const [open, setOpen] = React.useState(false);
   const [openResidence, setOpenResidence] = React.useState(false);
   const [currentRow, setCurrentRow] = React.useState<GridRowParams>();
+  const [rows, setRows] = React.useState<any[]>([]);
+  const { data } = useGetUser();
+
+  React.useEffect(() => {
+      if(data) {
+        data.result?.map(function(user) {
+          if(rows.filter(row => row.id === user.userId).length === 0) {
+            const newRow  =  {
+              id: user.userId,
+              Prenom: user.firstName,
+              Nom: user.name,
+              adresse: user.address,
+              Sex: user.sex,
+              Telepone: user.tel,
+              cin: user.numCIN
+            }
+            setRows(prevRows =>  [...prevRows, newRow]);
+          }
+        })
+      }
+  }, [data])
 
   const handleClickOpen = (params: GridRowParams) => {
     setCurrentRow(params);

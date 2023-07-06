@@ -1,11 +1,16 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { DeleteCasier, GetCasier, PostCasier, PutCasier } from "../services/CasierService"
 
-const useGetCasier =  () => {
+export const useGetCasier =  () => {
     const getCasierQuery = useQuery({queryKey:["get_casier"], queryFn:() => GetCasier.get()})
+    return {
+      isLoading: getCasierQuery.isLoading,
+      error: getCasierQuery.isError,
+      data: getCasierQuery.data
+    }
 };
 
-const usePostCasier = () => {
+export const usePostCasier = () => {
     const mutation = useMutation({
         mutationFn: (data:any) => PostCasier.post(data),
       });
@@ -19,7 +24,7 @@ const usePostCasier = () => {
       };
 };
 
-const usePutCasier = () => {
+ export const usePutCasier = () => {
     const mutation = useMutation({
         mutationFn: (data:any) => PutCasier.put(data),
       });
