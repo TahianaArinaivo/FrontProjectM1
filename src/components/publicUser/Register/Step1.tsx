@@ -92,7 +92,7 @@ function Step1(props: Props) {
                 <DocumentScannerIcon fontSize="large"/>
               </IconButton>
               <Typography  sx={{fontWeight:"400",fontFamily: "'Work Sans', sans-serif",cursor:"pointer"}}>
-                Annalyseur
+                Analyser
               </Typography>
             </Box>
           </Grid>

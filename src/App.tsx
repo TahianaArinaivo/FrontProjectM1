@@ -19,6 +19,9 @@ import {
   QueryClientProvider,
   useQuery,
 } from '@tanstack/react-query';
+import ProtectedRoutes from './ProtectedRoutesUserPublic'
+import ProtectedRoutesUserPublic from './ProtectedRoutesUserPublic'
+import ProtectedRoutesAdminUser from './ProtectedRoutesAdminUser'
 
 const queryClient = new QueryClient()
 
@@ -33,8 +36,12 @@ function App() {
           <Route path='/' element={<HomePage/>}></Route>
           <Route path='/utilisateur/*' element={<HomePage/>}></Route>
           <Route path="/utilisateur/register" element={<Register />}></Route>
-          <Route path='/utilisateur/dashboard/*' element={<Dashboard/>}></Route>
-          <Route path='/admin/*' element={<MainLayoutContainer/>}></Route>
+          <Route element={<ProtectedRoutesUserPublic/>}>
+            <Route path='/utilisateur/dashboard/*' element={<Dashboard/>}></Route>
+          </Route>
+          <Route element={<ProtectedRoutesAdminUser/>}>
+            <Route path='/admin/*' element={<MainLayoutContainer/>}></Route>
+          </Route>
         </Routes>
     </RecoilRoot>
    </QueryClientProvider>

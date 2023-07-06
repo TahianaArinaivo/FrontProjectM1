@@ -30,7 +30,7 @@ export default function Container() {
   const ColorButtonMore = styled(Button)<ButtonProps>(({ theme }) => ({
     color: theme.palette.getContrastText(green[700]),
     backgroundColor: "rgba(0, 0, 0, 0.127)",
-    borderRadius:15,
+    borderRadius: 15,
     "&:hover": {
       backgroundColor: "rgba(0, 0, 0, 0.407)",
       transitionDuration: ".1s",
@@ -90,7 +90,7 @@ export default function Container() {
             <Typography
               sx={{
                 color: "#71DCEC",
-                fontFamily:"'Roboto Mono', monospace",
+                fontFamily: "'Roboto Mono', monospace",
                 fontSize: "60px",
                 fontWeight: 700,
               }}
@@ -114,10 +114,13 @@ export default function Container() {
                 fontSize: "15px",
               }}
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed quo
-              facere pariatur excepturi omnis hic neque, debitis animi similique
-              praesentium error autem unde provident officia reiciendis sapiente
-              sint fuga tenetur!
+              l’application “CINDIA” apporte aux publiques et aux adminstrateurs à la
+              fois avantages et efficacités afin de pouvoir satisfaire leurs
+              besoins. Du côté pratique, cette application est un outil qui
+              propose un recours au système administratif traditionnel. Le
+              système étant entièrement automatisé, l’utilisateur n’aura qu’à
+              numériser sa carte d’identité nationale afin de pouvoir profiter
+              de tous les services proposés par l’application. 
             </Typography>
           </Box>
 
@@ -126,7 +129,6 @@ export default function Container() {
               Voir plus
             </ColorButtonMore>
           </Stack>
-
         </Box>
 
         <Box

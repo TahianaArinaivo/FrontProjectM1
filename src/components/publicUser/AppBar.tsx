@@ -87,7 +87,7 @@ const navigate = useNavigate();
               }}
               color="inherit"
             >
-              Maison
+              Accueil
             </Button>
             <Button
               onClick={() => scroll("about")}
