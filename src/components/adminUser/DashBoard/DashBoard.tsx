@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
@@ -21,10 +21,11 @@ import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
 import { useGetUser } from "../../../hooks/useUser";
+import Skeleton from "react-loading-skeleton";
 
 export default function Home() {
   const { data } = useGetUser();
-  
+
   return (
     <>
       <Typography
@@ -44,11 +45,15 @@ export default function Home() {
               height: 240,
             }}
           >
-            <Chart users={data?.result} />
+            <Suspense fallback={<Skeleton count={5} />}>
+              <Chart users={data?.result} />
+            </Suspense>
           </Paper>
 
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-            <Orders users={data?.result} />
+            <Suspense fallback={<Skeleton count={5} />}>
+              <Orders users={data?.result} />
+            </Suspense>
           </Paper>
         </Container>
       </Box>

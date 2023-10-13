@@ -10,3 +10,4 @@ export const useGetUser = () => {
         isSuccess: userQuery.isSuccess,   
     }
 }
+

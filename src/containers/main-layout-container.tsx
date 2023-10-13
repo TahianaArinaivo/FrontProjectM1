@@ -1,13 +1,9 @@
-import React from 'react';
-import SideNav from '../components/adminUser/main-layout/sideNav';
-
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import List from '../components/adminUser/List/list';
+import SideNav from "../components/adminUser/main-layout/sideNav";
 
 export default function MainLayoutContainer() {
-  return(
+  return (
     <>
-        <SideNav/>
+      <SideNav />
     </>
   );
 }
