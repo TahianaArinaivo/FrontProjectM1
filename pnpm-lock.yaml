@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   '@emotion/react':
     specifier: ^11.10.6
@@ -31,7 +27,7 @@ dependencies:
     version: 5.13.1(react@18.2.0)
   '@mui/x-data-grid':
     specifier: ^6.0.2
-    version: 6.6.0(@mui/material@5.13.3)(@mui/system@5.13.2)(react-dom@18.2.0)(react@18.2.0)
+    version: 6.6.0(@mui/material@5.13.3)(react-dom@18.2.0)(react@18.2.0)
   '@tanstack/react-query':
     specifier: ^4.29.15
     version: 4.29.15(react-dom@18.2.0)(react@18.2.0)
@@ -64,7 +60,7 @@ dependencies:
     version: 2.29.4
   pdf-viewer-reactjs:
     specifier: ^2.2.3
-    version: 2.2.3(bulma-helpers@0.4.3)(bulma@0.9.4)(material-design-icons@3.0.1)(react-dom@18.2.0)(react@18.2.0)
+    version: 2.2.3(react-dom@18.2.0)(react@18.2.0)
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
@@ -988,7 +984,7 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /@mui/x-data-grid@6.6.0(@mui/material@5.13.3)(@mui/system@5.13.2)(react-dom@18.2.0)(react@18.2.0):
+  /@mui/x-data-grid@6.6.0(@mui/material@5.13.3)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-RCAdQM4D0RWLnFCtuv6pJEFqUtH3WmlTU2Av+p3Ir2Utw03FQzc81oOpOZNv/6SXv+rMa+i42pb6fW0U5Xz0AQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -999,7 +995,6 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.3
       '@mui/material': 5.13.3(@emotion/react@11.11.0)(@emotion/styled@11.11.0)(@types/react@18.2.8)(react-dom@18.2.0)(react@18.2.0)
-      '@mui/system': 5.13.2(@emotion/react@11.11.0)(@emotion/styled@11.11.0)(@types/react@18.2.8)(react@18.2.0)
       '@mui/utils': 5.13.1(react@18.2.0)
       clsx: 1.2.1
       prop-types: 15.8.1
@@ -1245,14 +1240,6 @@ packages:
       node-releases: 2.0.12
       update-browserslist-db: 1.0.11(browserslist@4.21.7)
     dev: true
-
-  /bulma-helpers@0.4.3:
-    resolution: {integrity: sha512-g6Ocz9dazzPHBM7+yHEvNJ4NsUkhEriFEV7pL0U47MoVBmgT6MwS0v+w3bSAVsM1iX70cnjQIFAqj2/isnp1gA==}
-    dev: false
-
-  /bulma@0.9.4:
-    resolution: {integrity: sha512-86FlT5+1GrsgKbPLRRY7cGDg8fsJiP/jzTqXXVqiUZZ2aZT8uemEOHlU1CDU+TxklPEZ11HZNNWclRBBecP4CQ==}
-    dev: false
 
   /callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
@@ -1846,10 +1833,6 @@ packages:
     resolution: {integrity: sha512-JhvWq/iz1BvlmnPvLJjXv+xnMPJZuychrDC68V+yCGQJn5chcA8rLGKo5EP1XwIKVrigSXKLmbeXAGkf36wdCQ==}
     dev: false
 
-  /material-design-icons@3.0.1:
-    resolution: {integrity: sha512-t19Z+QZBwSZulxptEu05kIm+UyfIdJY1JDwI+nx02j269m6W414whiQz9qfvQIiLrdx71RQv+T48nHhuQXOCIQ==}
-    dev: false
-
   /merge-refs@1.2.1:
     resolution: {integrity: sha512-pRPz39HQz2xzHdXAGvtJ9S8aEpNgpUjzb5yPC3ytozodmsHg+9nqgRs7/YOmn9fM/TLzntAC8AdGTidKxOq9TQ==}
     dependencies:
@@ -2024,7 +2007,7 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /pdf-viewer-reactjs@2.2.3(bulma-helpers@0.4.3)(bulma@0.9.4)(material-design-icons@3.0.1)(react-dom@18.2.0)(react@18.2.0):
+  /pdf-viewer-reactjs@2.2.3(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-HM6ngxxnbztd/N/3dB+of3jSZtzS8CjcAoIfSWe7OY9Aqwb6cXLHbluCWc//cySXDdj3hhe8Wj5Wjg7T1ktxUA==}
     peerDependencies:
       bulma: '>=0.8.1'
@@ -2033,9 +2016,6 @@ packages:
       react: '>=16.8.6'
       react-dom: '>=16.8.6'
     dependencies:
-      bulma: 0.9.4
-      bulma-helpers: 0.4.3
-      material-design-icons: 3.0.1
       pdfjs-dist: 2.16.105
       prop-types: 15.8.1
       react: 18.2.0
@@ -2727,3 +2707,7 @@ packages:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
     dev: false
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
