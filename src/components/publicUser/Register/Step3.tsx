@@ -65,7 +65,7 @@ const { isLoading, analysCinMutate, isSuccess, data } = useAnalysCin();
                 //borderRadius: "5%",
               }}
             >
-                <CinAnalysResult data={data} />
+                <CinAnalysResult data={user} />
             </Box>
           </Grid>
       </Box>

@@ -24,6 +24,8 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { green } from "@mui/material/colors";
+import { useSignIn } from "../../../hooks/useSignIn";
+import { Credentials } from "../../publicUser/types/Auth";
 
 function Copyright(props: any) {
   return (
@@ -46,6 +48,7 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 export default function AuthenticationUser() {
+  const { signIn, isLoading, error, data: userAuth, isSuccess } = useSignIn();
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -68,11 +71,24 @@ export default function AuthenticationUser() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    const userInfo: Credentials = {
+      tel: data.get("tel")?.toString(),
+      password: data.get("password")?.toString(),
+    };
+    console.log("userInfo:", userInfo);
+    signIn(userInfo);
   };
+
+  React.useEffect(() => {
+    if (isSuccess) {
+      localStorage.setItem("token", userAuth?.token ? userAuth.token : "");
+      localStorage.setItem(
+        "userId",
+        userAuth?.user?.userId ? userAuth?.user?.userId : ""
+      );
+      navigate("/utilisateur/dashboard");
+    }
+  }, [isSuccess]);
 
   const navigate = useNavigate();
 

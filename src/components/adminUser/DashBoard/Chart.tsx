@@ -55,7 +55,7 @@ export default function Chart({ users }: Props) {
     if(users) {
       generateData();
     }
-  }, [users])
+  }, [])
 
 
   return (

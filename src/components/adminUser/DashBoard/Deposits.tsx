@@ -21,13 +21,13 @@ export default function Deposits({ users }: Props) {
       {
         title: "HOMME",
         nbr: masculins,
-        progress: masculins && masculins != 0 ? (masculins * 100) / total : 0,
+        progress: masculins && masculins != 0 ? Math.round((masculins * 100) / total) : 0,
         color: "#e57373",
       },
       {
         title: "FEMME",
         nbr: feminins,
-        progress: feminins && feminins != 0 ? (feminins * 100) / total : 0,
+        progress: feminins && feminins != 0 ? Math.round((feminins * 100) / total) : 0,
         color: "#00b0ff",
       },
       {
