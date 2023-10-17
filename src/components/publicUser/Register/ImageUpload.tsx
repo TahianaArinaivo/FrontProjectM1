@@ -85,7 +85,7 @@ const ImageUpload = ({ cinUpload }: Props) => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          alignContent: "center"
+          alignContent: "center",
         }}
         color="primary"
         aria-label="upload picture"

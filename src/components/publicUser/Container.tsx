@@ -85,7 +85,7 @@ export default function Container() {
                 fontWeight: 500,
               }}
             >
-              Bienvenu sur
+              Bienvenue sur
             </Typography>
             <Typography
               sx={{
