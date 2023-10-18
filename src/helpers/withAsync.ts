@@ -1,8 +1,5 @@
 type WithAsync<T = unknown> = () => T | Promise<T>;
-type WithAsyncReturn<TData, TError> = Promise<{
-  response: TData | null;
-  error: TError | unknown;
-}>;
+type WithAsyncReturn<TData, TError> = Promise<TData | TError> | null | unknown;
 
 //abstract of try catch
 export async function withAsync<TData = unknown, TError = unknown>(
@@ -13,14 +10,8 @@ export async function withAsync<TData = unknown, TError = unknown>(
       throw new Error("the first argument must be a function");
     }
     const response = await fn();
-    return {
-      response,
-      error: null,
-    };
+    return response;
   } catch (error) {
-    return {
-      response: null,
-      error,
-    };
+    return error;
   }
 }
