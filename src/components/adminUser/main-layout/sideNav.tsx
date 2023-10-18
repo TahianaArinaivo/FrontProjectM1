@@ -30,6 +30,7 @@ import {
 } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import Link from "@mui/material/Link";
+import HowToVoteIcon from "@mui/icons-material/HowToVote";
 
 import Content from "../contents/content";
 import { ToolBar } from "./toolbar";
@@ -37,17 +38,22 @@ import { token } from "../../../theme";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" mt="5rem" sx={{color:'#9DA4AE'}}>
-      {'Copyright © '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      mt="5rem"
+      sx={{ color: "#9DA4AE" }}
+    >
+      {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Sindwai
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
-
 
 const drawerWidth = 260;
 
@@ -96,24 +102,23 @@ export default function SideNav(props: Props) {
       title: "Statistique",
       icon: <ShowChartOutlinedIcon />,
     },
-
+    {
+      link: "/admin/vote",
+      title: "Assistant de vote",
+      icon: <HowToVoteIcon />,
+    },
   ];
 
   const theme = useTheme();
   const colors = token(theme.palette.mode);
 
   const drawer = (
-    <div> 
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        ml="25%"
-        mt="20px"
-      >
+    <div>
+      <Box display="flex" justifyContent="space-between" ml="25%" mt="20px">
         <Typography
           variant="h5"
           color={theme.palette.mode === "dark" ? colors.grey[100] : "white"}
-          sx={{fontFamily: "'Work Sans', sans-serif",}}
+          sx={{ fontFamily: "'Work Sans', sans-serif" }}
         >
           ADMINS
         </Typography>
@@ -129,7 +134,7 @@ export default function SideNav(props: Props) {
             src="/user.png"
           />
         </Box>
-        <Box textAlign="center" sx={{fontFamily: "'Work Sans', sans-serif",}}>
+        <Box textAlign="center" sx={{ fontFamily: "'Work Sans', sans-serif" }}>
           <Typography
             variant="h2"
             color={theme.palette.mode === "dark" ? colors.grey[100] : "white"}
@@ -195,7 +200,7 @@ export default function SideNav(props: Props) {
           </ListItem>
         ))}
       </List>
-      <Copyright/>
+      <Copyright />
     </div>
   );
 
@@ -319,10 +324,7 @@ export default function SideNav(props: Props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, pt: 8 , width: "100%" }}
-      >
+      <Box component="main" sx={{ flexGrow: 1, pt: 8, width: "100%" }}>
         <Content />
       </Box>
     </Box>

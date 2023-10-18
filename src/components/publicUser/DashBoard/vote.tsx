@@ -80,7 +80,7 @@ function Vote() {
             width: "50%",
             height: "85vh",
             boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-            borderRadius: "50px",
+            borderRadius: "10px",
             paddingX: "2rem",
             paddingY: "1rem",
             display: "flex",
