@@ -36,12 +36,12 @@ function App() {
           <Route path='/' element={<HomePage/>}></Route>
           <Route path='/utilisateur/*' element={<HomePage/>}></Route>
           <Route path="/utilisateur/register" element={<Register />}></Route>
-          <Route element={<ProtectedRoutesUserPublic/>}>
+         {/* <Route element={<ProtectedRoutesUserPublic/>}>*/}
             <Route path='/utilisateur/dashboard/*' element={<Dashboard/>}></Route>
-          </Route>
-          <Route element={<ProtectedRoutesAdminUser/>}>
+          {/*</Route>*/}
+         {/* <Route element={<ProtectedRoutesAdminUser/>}>*/}
             <Route path='/admin/*' element={<MainLayoutContainer/>}></Route>
-          </Route>
+          {/*</Route>*/}
         </Routes>
     </RecoilRoot>
    </QueryClientProvider>

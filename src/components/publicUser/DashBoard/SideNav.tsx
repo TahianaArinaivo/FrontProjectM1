@@ -21,7 +21,8 @@ import { Routes, Route, BrowserRouter, useNavigate } from "react-router-dom";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import Link from '@mui/material/Link';
+import Link from "@mui/material/Link";
+import HowToVoteIcon from "@mui/icons-material/HowToVote";
 
 import { token } from "../../../theme";
 
@@ -37,16 +38,21 @@ interface Props {
   window?: () => Window;
 }
 
-
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" mt="12rem" sx={{color:'#9DA4AE'}}>
-      {'Copyright © '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      mt="12rem"
+      sx={{ color: "#9DA4AE" }}
+    >
+      {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Sindwai
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -75,48 +81,53 @@ export default function SideNavPublicUser(props: Props) {
       icon: <PersonOutlinedIcon />,
     },
     {
+      link: "/utilisateur/dashboard/vote",
+      title: "Assistant de vote",
+      icon: <HowToVoteIcon />,
+    },
+    {
       link: "/utilisateur/dashboard/faq",
       title: "FAQ Page",
       icon: <HelpOutlineOutlinedIcon />,
     },
   ];
 
-  
   const theme = useTheme();
   const colors = token(theme.palette.mode);
 
   const drawer = (
     <div>
-            <Box mb="25px" mt="40px">
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                  alt="user profile"
-                  width={"80"}
-                  height={"80px"}
-                  src="/user.png"
-                />
-              </Box>
-              <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={
-                    theme.palette.mode === "dark" ? colors.grey[100] : "white"
-                  }
-                  fontWeight="bold"
-                  fontSize={"20px"}
-                  sx={{ margin: "5px 0 10px 0" }}
-                >
-                  Nirintsoa
-                </Typography>
-                <Typography variant="h3" color={colors.greenAccent[500]} sx={{fontFamily:"'Roboto Mono', monospace"}}>
-                CINDIA
-                </Typography>
-              </Box>
-            </Box>
+      <Box mb="25px" mt="40px">
+        <Box display="flex" justifyContent="center" alignItems="center">
+          <img
+            style={{ cursor: "pointer", borderRadius: "50%" }}
+            alt="user profile"
+            width={"80"}
+            height={"80px"}
+            src="/user.png"
+          />
+        </Box>
+        <Box textAlign="center">
+          <Typography
+            variant="h2"
+            color={theme.palette.mode === "dark" ? colors.grey[100] : "white"}
+            fontWeight="bold"
+            fontSize={"20px"}
+            sx={{ margin: "5px 0 10px 0" }}
+          >
+            Nirintsoa
+          </Typography>
+          <Typography
+            variant="h3"
+            color={colors.greenAccent[500]}
+            sx={{ fontFamily: "'Roboto Mono', monospace" }}
+          >
+            CINDIA
+          </Typography>
+        </Box>
+      </Box>
 
-
-      <Divider  sx={{ color: "#f1f1f1" }} />
+      <Divider sx={{ color: "#f1f1f1" }} />
 
       <List>
         {LIST_ITEM.map((item, i) => (
@@ -167,7 +178,7 @@ export default function SideNavPublicUser(props: Props) {
         ))}
       </List>
 
-      <Copyright/>
+      <Copyright />
     </div>
   );
 
@@ -241,12 +252,8 @@ export default function SideNavPublicUser(props: Props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, p: 3 , width: "100%", }}
-      >
+      <Box component="main" sx={{ flexGrow: 1, p: 3, width: "100%" }}>
         <ContentPublicUser />
-
       </Box>
     </Box>
   );
