@@ -1,14 +1,19 @@
 import {
   Box,
   Button,
+  FormControl,
   IconButton,
+  Input,
+  InputLabel,
+  MenuItem,
   Modal,
-  Radio,
+  Select,
+  TextField,
   Typography,
 } from "@mui/material";
 import React from "react";
-import VoteResult from "../../adminUser/vote/VoteResult";
 import PollIcon from "@mui/icons-material/Poll";
+import VoteResult from "./VoteResult";
 
 const style = {
   position: "absolute" as "absolute",
@@ -22,7 +27,7 @@ const style = {
   p: 4,
 };
 
-function Vote() {
+export default function VoteAdmin() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -64,41 +69,87 @@ function Vote() {
       organisationName: "Archivec",
     },
   ];
-
   return (
     <div>
       <Box
         sx={{
           marginTop: "3rem",
-          width: "100%",
+          mx: "3rem",
+          width: "90%",
           display: "flex",
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ width: "45%" }}>
+        <Box
+          sx={{
+            width: "45%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
           <Typography sx={{ my: 1 }} variant="h4">
             Assistant de vote
           </Typography>
-          <Typography sx={{ my: 1 }} variant="h5">
-            Type de vote:{" "}
-            <Typography variant="h5" sx={{ fontWeight: "600" }}>
-              Président de la république
-            </Typography>
-          </Typography>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit a
-          adipisci eius earum id et assumenda amet eaque, atque, culpa sint
-          illum! Magni rerum, tempora voluptatibus earum mollitia voluptate
-          iusto! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Numquam aliquam nisi doloribus? Aliquid neque architecto voluptate
-          veniam dicta, qui commodi, suscipit exercitationem odit, delectus
-          dolorum consectetur ea laborum vel accusamus. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Ut dolorem rerum voluptatem ex
-          labore, minus beatae, totam in ratione, error ipsum magni. Illo
-          voluptatem provident repellendus praesentium accusantium quasi
-          voluptates. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Quam nostrum ullam dolor provident accusantium sit fugiat omnis,
-          voluptatibus voluptatem vitae suscipit tenetur accusamus recusandae
-          dicta optio, enim numquam dolorum ipsa?
+          <FormControl sx={{ height: "auto" }} variant="filled" fullWidth>
+            <InputLabel id="demo-simple-select-label">
+              Type d'élection:
+            </InputLabel>
+            <Select label="type">
+              <MenuItem value={10}>Président de la république</MenuItem>
+              <MenuItem value={20}>Maire</MenuItem>
+              <MenuItem value={30}>Député</MenuItem>
+            </Select>
+          </FormControl>
+          <Box
+            sx={{
+              width: "100%",
+              height: "500px",
+              boxShadow:
+                "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+              display: "flex",
+              flexDirection: "column",
+              padding: "20px",
+            }}
+          >
+            <form>
+              <Typography variant="h4" gutterBottom>
+                Enregistrer un candidat :
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: "20px",
+                }}
+              >
+                <FormControl sx={{ my: "5px" }}>
+                  <TextField
+                    label="Nom et Prénom candidat"
+                    type="text"
+                    required
+                  />
+                </FormControl>
+                <FormControl sx={{ my: "5px" }}>
+                  <TextField label="Partie politique" type="text" required />
+                </FormControl>
+              </Box>
+              <Typography variant="h6" sx={{ fontSize: "15px" }}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam neque soluta repellendus aut nisi assumenda, excepturi
+                quis beatae dolorem similique sed, impedit, amet maiores!
+                Repellat, pariatur unde. Dolor, vel deleniti.
+              </Typography>
+              <Button
+                sx={{ my: "20px", marginLeft: "70%" }}
+                type="submit"
+                variant="contained"
+                color="primary"
+              >
+                Enregistrer
+              </Button>
+            </form>
+          </Box>
         </Box>
         <Box
           sx={{
@@ -127,13 +178,15 @@ function Vote() {
                 <VoteResult />
               </Box>
             </Modal>
+
             <Typography
               variant="h5"
               sx={{ width: "100%", textAlign: "center", marginBottom: "10px" }}
             >
-              Choisissez un candidat
+              Liste des candidats
             </Typography>
           </Box>
+
           <Box sx={{ overflow: "auto" }}>
             {Candidats.map((candidat, i) => (
               <Box
@@ -150,35 +203,27 @@ function Vote() {
                   <img
                     style={{ cursor: "pointer", borderRadius: "50%" }}
                     alt="user profile"
-                    width={"80"}
-                    height={"80px"}
+                    width={"50"}
+                    height={"50px"}
                     src={candidat.profile}
                   />
-                  <Box sx={{ width: "60%" }}>
+                  <Box sx={{ width: "80%" }}>
                     <Typography>{candidat.name}</Typography>
                     <Typography>{candidat.organisationName}</Typography>
-                  </Box>
-                  <Box>
-                    <Radio
-                      name="radio-buttons"
-                      inputProps={{ "aria-label": "A" }}
-                    />
                   </Box>
                 </Box>
               </Box>
             ))}
           </Box>
-          <Button
+          <Typography
+            variant="h6"
             sx={{ alignSelf: "center", marginBottom: "0", marginTop: "20px" }}
-            type="submit"
-            variant="contained"
           >
-            Valider
-          </Button>
+            {Candidats.length}
+            {" Candidat(s)"}
+          </Typography>
         </Box>
       </Box>
     </div>
   );
 }
-
-export default Vote;

@@ -49,8 +49,6 @@ function getStepContent(
   }
 }
 
-const defaultTheme = createTheme();
-
 export default function Register() {
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -59,7 +57,6 @@ export default function Register() {
   const [phone, setPhone] = React.useState<string>();
   const [password, setPassword] = React.useState<string>();
   const { data, isLoading, isSuccess, error, signUp } = useSignUp();
-
 
   const handleNext = () => {
     if (activeStep === 1) {
@@ -89,7 +86,7 @@ export default function Register() {
         SectionId: 1,
         UserCasierId: 1,
         UserDistrictId: 1,
-        Role: "public"
+        Role: "public",
       };
       signUp(data);
     }
@@ -122,10 +119,10 @@ export default function Register() {
   }));
 
   React.useEffect(() => {
-    if(isSuccess) {
-      navigate('/');
+    if (isSuccess) {
+      navigate("/");
     }
-  }, [isSuccess])
+  }, [isSuccess]);
 
   return (
     <Box
@@ -178,12 +175,17 @@ export default function Register() {
 
           <Stepper activeStep={activeStep}>
             {steps.map((label) => (
-              <Step  key={label}>
+              <Step key={label}>
                 <StepLabel>
-                  <Typography  sx={{ fontFamily: "'Work Sans', sans-serif",color:"#f1f1f1" }}>
-                  {label}
+                  <Typography
+                    sx={{
+                      fontFamily: "'Work Sans', sans-serif",
+                      color: "#f1f1f1",
+                    }}
+                  >
+                    {label}
                   </Typography>
-                  </StepLabel>
+                </StepLabel>
               </Step>
             ))}
           </Stepper>

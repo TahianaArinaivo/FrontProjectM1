@@ -119,7 +119,11 @@ export default function HomePublicUser() {
 
       <Grid container>
         <Grid item md={10} xs={12}>
-          <FormControl fullWidth sx={{ mb: "3rem", maxWidth: "50%" }}>
+          <FormControl
+            fullWidth
+            variant="filled"
+            sx={{ mb: "3rem", maxWidth: "50%" }}
+          >
             <InputLabel id="demo-simple-select-label">
               Type de demande
             </InputLabel>
