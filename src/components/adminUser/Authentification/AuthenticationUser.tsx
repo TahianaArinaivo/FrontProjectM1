@@ -3,8 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button, { ButtonProps } from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
@@ -26,6 +24,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { green } from "@mui/material/colors";
 import { useSignIn } from "../../../hooks/useSignIn";
 import { Credentials } from "../../publicUser/types/Auth";
+import toast, { Toaster } from "react-hot-toast";
 
 function Copyright(props: any) {
   return (
@@ -68,15 +67,22 @@ export default function AuthenticationUser() {
     },
   }));
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const userInfo: Credentials = {
-      tel: data.get("tel")?.toString(),
-      password: data.get("password")?.toString(),
-    };
-    console.log("userInfo:", userInfo);
-    signIn(userInfo);
+    try {
+      const data = new FormData(event.currentTarget);
+      const userInfo: Credentials = {
+        tel: data.get("tel")?.toString(),
+        password: data.get("password")?.toString(),
+      };
+      signIn(userInfo);
+
+      if (error) {
+        toast.error("Téléphone ou mot de passe incorrect");
+      }
+    } catch (error) {
+      toast.error("Téléphone ou mot de passe incorrect");
+    }
   };
 
   React.useEffect(() => {
@@ -176,19 +182,19 @@ export default function AuthenticationUser() {
               </FormControl>
 
               <Stack>
-              <ColorButtonLog
-                onClick={() => navigate("/admin")}
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Se connecter
-              </ColorButtonLog>
+                <ColorButtonLog
+                  onClick={() => navigate("/admin")}
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  {isLoading ? "Chargement:" : "Se connecter"}
+                </ColorButtonLog>
               </Stack>
               <Grid container>
                 <Grid item xs>
-                  <Link sx={{color:"#7874D6"}} href="#" variant="body2">
+                  <Link sx={{ color: "#7874D6" }} href="#" variant="body2">
                     Mot de passe oublier
                   </Link>
                 </Grid>

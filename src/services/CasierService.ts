@@ -7,4 +7,4 @@ export const PostCasier = new APICLIENT<Casier>('/Casier');
 
 export const PutCasier = new APICLIENT<Casier>('/Casier');
 
-export const DeleteCasier = new APICLIENT<Casier>('/Casier');
+export const DeleteCasier = new APICLIENT<Casier>('/Casier');   

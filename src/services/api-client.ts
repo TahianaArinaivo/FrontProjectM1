@@ -34,6 +34,7 @@ class APICLIENT<T> {
       .post<T>(this.endpoint, data)
       .then((res) => res.data)
       .catch((err) => {
+        console.log("error:", err)
         throw err;
       });
   }
@@ -52,7 +53,7 @@ class APICLIENT<T> {
       .put<T>(this.endpoint, data)
       .then((res) => res.data)
       .catch((err) => {
-        throw err;
+        return err;
       });
   }
 
@@ -61,7 +62,7 @@ class APICLIENT<T> {
       .delete<T>(this.endpoint, data)
       .then((res) => res.data)
       .catch((err) => {
-        throw err;
+        return err;
       });
   }
 }
