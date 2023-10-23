@@ -91,7 +91,7 @@ function ProfilePublicUser() {
                     width: "350px",
                     height: "200px",
                   }}
-                  src="/cin.jpg"
+                  src="/tendry-cin.png"
                   alt="picCin"
                 />
               </CardContent>

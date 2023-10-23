@@ -66,6 +66,7 @@ export default function Register() {
         password: password,
         phone: phone,
       };
+      console.log("currentUser:", currentUser);
       setUser(currentUser);
     }
     if (activeStep === 2) {
@@ -75,11 +76,11 @@ export default function Register() {
         Birthday: user?.birth,
         Birthplace: user?.birthplace,
         Address: user?.address,
-        FathersName: user?.fathersName,
-        MothersName: user?.mothersName,
+        FathersName: user?.fatherName,
+        MothersName: user?.motherName,
         PlaceOfIssue: "antananarivo",
         Sex: "Masculin",
-        Tel: user?.tel,
+        Tel: user?.phone,
         NumCIN: user?.numCIN,
         ScanCIN: "localhost://test",
         Password: user?.password,

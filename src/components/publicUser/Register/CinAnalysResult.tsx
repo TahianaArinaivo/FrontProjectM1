@@ -87,7 +87,7 @@ export const CinAnalysResult = ({ data }: Props) => {
           Nom du père :
         </Typography>
         <Typography sx={{ textDecoration: "none" }}>
-          {data?.fathersName}
+          {data?.fatherName}
         </Typography>
       </Box>
       <Box sx={{ fontFamily: "cursive", display: "flex" }}>
@@ -95,7 +95,7 @@ export const CinAnalysResult = ({ data }: Props) => {
           Nom de la mère:
         </Typography>
         <Typography sx={{ textDecoration: "none" }}>
-          {data?.mothersName}
+          {data?.motherName}
         </Typography>
       </Box>
       <Box sx={{ fontFamily: "cursive", display: "flex" }}>

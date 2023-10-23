@@ -31,37 +31,37 @@ function Vote() {
     {
       profile: "/user.png",
       name: "ARINAIVO Tahiana Soavina",
-      organisationName: "Archivec",
+      organisationName: "Partie politique 1",
     },
     {
       profile: "/user.png",
       name: "RAMAROLAHY Andrinandrasana Tsiory",
-      organisationName: "Archivec",
+      organisationName: "Partie politique 2",
     },
     {
       profile: "/user.png",
       name: "RAVOARY Antsa Fitiavana",
-      organisationName: "Archivec",
+      organisationName: "Partie politique 3",
     },
     {
       profile: "/user.png",
       name: "RAMANADRAIBE Aloy Patrick",
-      organisationName: "Archivec",
+      organisationName: "Partie politique 4",
     },
     {
       profile: "/user.png",
       name: "ANDRIAMILAMINA Tendriarivelo",
-      organisationName: "Archivec",
+      organisationName: "Partie politique 5",
     },
     {
       profile: "/user.png",
       name: "RAKOTOARIVONY Sitraka Herisoa",
-      organisationName: "Archivec",
+      organisationName: "Partie politique 6",
     },
     {
       profile: "/user.png",
       name: "MENABENDRAMORA Evrard Kevin SAI",
-      organisationName: "Archivec",
+      organisationName: "Partie politique 7",
     },
   ];
 
