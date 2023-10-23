@@ -7,7 +7,10 @@ class SignalRService {
 
   constructor() {
     this.connection = new signalR.HubConnectionBuilder()
-      .withUrl(hubUrl)
+      .withUrl(hubUrl, {
+        skipNegotiation: true,
+        transport: signalR.HttpTransportType.WebSockets,
+      })
       .build();
   }
 
@@ -27,6 +30,10 @@ class SignalRService {
       .catch((err) =>
         console.error("Error stopping SignalR connection: ", err)
       );
+  };
+
+  getSignalR = () => {
+    return signalR;
   };
 
   addReceiveMessageListener = (

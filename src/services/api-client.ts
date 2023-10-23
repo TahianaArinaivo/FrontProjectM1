@@ -12,7 +12,6 @@ class APICLIENT<T> {
   constructor(endpoint: string, fn?: (cin: File) => FormData) {
     this.endpoint = endpoint;
     this.fn = fn;
-    
   }
 
   postCin = (cin: File) => {
@@ -34,15 +33,24 @@ class APICLIENT<T> {
       .post<T>(this.endpoint, data)
       .then((res) => res.data)
       .catch((err) => {
-        console.log("error:", err)
+        console.log("error:", err);
         throw err;
       });
   }
 
   get() {
     return axiosInstance
-      .get<T>(!this?.id ? this.endpoint: `${this.endpoint}/${this.id}`)
-      .then(res => res.data)
+      .get<T>(!this?.id ? this.endpoint : `${this.endpoint}/${this.id}`)
+      .then((res) => res.data)
+      .catch((err) => {
+        throw err;
+      });
+  }
+
+  getById(id: number) {
+    return axiosInstance
+      .get<T>(`${this.endpoint}/${id}`)
+      .then((res) => res.data)
       .catch((err) => {
         throw err;
       });

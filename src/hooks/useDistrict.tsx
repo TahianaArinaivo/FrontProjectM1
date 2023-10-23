@@ -1,5 +1,4 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
-import { DeleteCasier, GetCasier, PostCasier, PutCasier } from "../services/CasierService"
 import { DeleteDistrict, GetDistrict, PostDistrict, PutDistrict } from "../services/DistrictService";
 
 const useGetDistrict =  () => {

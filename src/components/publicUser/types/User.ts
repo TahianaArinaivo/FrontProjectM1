@@ -7,5 +7,7 @@ export type User = CIN & {
     userId?: string,
     sex?: string;
     createdAt?: string;
-    firstName?: string; 
+    firstName?: string;
+    placeOfIssue?:string;
+    birthday?: string; 
 }

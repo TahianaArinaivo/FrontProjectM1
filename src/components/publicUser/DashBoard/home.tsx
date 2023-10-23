@@ -3,7 +3,6 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import Link from "@mui/material/Link";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -11,6 +10,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import SignalRService from "../../../services/SignalRService";
+import { useGetDemande, usePostDemande } from "../../../hooks/useDemande";
+import Demande from "../types/Demande";
+import moment from "moment";
+import "moment/locale/fr"; // Load the French locale
+import { datePlus2Days, getStatus } from "../../../helpers/utils";
 
 interface Row {
   date: Date;
@@ -26,6 +30,8 @@ interface Message {
 
 export default function HomePublicUser() {
   const [typeSelect, setTypeSelect] = React.useState("");
+  const { isLoading, isSuccess, requestDemande } = usePostDemande();
+  const { data: demandes } = useGetDemande();
   const [rows, setRows] = React.useState<Row[]>([]);
   const signalRService = new SignalRService();
   const [messages, setMessages] = React.useState<Message[]>([]);
@@ -51,10 +57,17 @@ export default function HomePublicUser() {
     setTypeSelect(event.target.value as string);
   };
 
-  const handelSubmit = (e: React.FormEvent) => {
+  const handelSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(typeSelect);
     if (typeSelect === "") return;
+    let currentDemande: Demande = {
+      dateDemande: new Date(),
+      userId: 8,
+      demandeId: 0,
+      status: "pending",
+      typeDemande: typeSelect,
+    } as Demande;
+    await requestDemande(currentDemande);
     setRows((prev) => [
       ...prev,
       {
@@ -67,22 +80,26 @@ export default function HomePublicUser() {
   };
 
   React.useEffect(() => {
-    signalRService.startConnection().then(() => {
-      signalRService.addReceiveMessageListener((user, message) => {
-        const updatedMessages = [...messages, { user, message }];
-        setMessages(updatedMessages);
+    if (
+      signalRService.connection.state ===
+      signalRService.getSignalR().HubConnectionState.Disconnected
+    ) {
+      signalRService.startConnection().then(() => {
+        signalRService.addReceiveMessageListener((user, message) => {
+          const updatedMessages = [...messages, { user, message }];
+          setMessages(updatedMessages);
+        });
       });
-    });
-    return () => {
-      signalRService.stopConnection();
-    };
+    }
+    // return () => {
+    //   signalRService.stopConnection();
+    // };
   }, []);
 
   const handleSendMessage = () => {
-    signalRService.sendMessage(user, message)
-      .then(() => {
-        // Do something after the message is sent, if needed
-      });
+    signalRService.sendMessage(user, message).then(() => {
+      // Do something after the message is sent, if needed
+    });
   };
 
   return (
@@ -141,14 +158,16 @@ export default function HomePublicUser() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row, index) => (
+                {demandes?.result?.map?.((demande, index) => (
                   <TableRow key={index}>
-                    <TableCell>{row.date.getDate()}</TableCell>
-                    <TableCell>{row.type}</TableCell>
-                    <TableCell>{row.dateReception.getDate()}</TableCell>
                     <TableCell>
-                      {row.state ? "En attente" : "terminé"}
+                      {moment(demande?.dateDemande).format(
+                        "D MMMM YYYY [à] HH[H]:mm"
+                      )}
                     </TableCell>
+                    <TableCell>{demande.typeDemande}</TableCell>
+                    <TableCell>{datePlus2Days(demande.dateDemande)}</TableCell>
+                    <TableCell>{getStatus(demande.status)}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
