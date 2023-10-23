@@ -109,13 +109,13 @@ export default function SideNavPublicUser(props: Props) {
         </Box>
         <Box textAlign="center">
           <Typography
-            variant="h2"
+            variant="h4"
             color={theme.palette.mode === "dark" ? colors.grey[100] : "white"}
-            fontWeight="bold"
+            fontWeight="400"
             fontSize={"20px"}
             sx={{ margin: "5px 0 10px 0" }}
           >
-            Nirintsoa
+            ANDRIAMILAMINA Tendriarivelo
           </Typography>
           <Typography
             variant="h3"

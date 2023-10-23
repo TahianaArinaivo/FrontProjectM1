@@ -24,9 +24,7 @@ function Copyright() {
       sx={{ color: "#9DA4AE" }}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Sindwai
-      </Link>{" "}
+      <Link color="inherit" href="https://mui.com/"></Link>{" "}
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -40,7 +38,7 @@ function ProfilePublicUser() {
         sx={{
           display: "flex",
           flexGrow: 1,
-          mt: "6rem",
+          mt: "10rem",
           fontFamily: "'Work Sans', sans-serif",
         }}
       >
@@ -64,10 +62,10 @@ function ProfilePublicUser() {
                     }}
                   />
                   <Typography color="textPrimary" gutterBottom variant="h5">
-                    NIRINTSOA
+                    Tendriarivelo
                   </Typography>
                   <Typography color="textSecondary" variant="body2">
-                    Ambatoroka, Madagascar
+                    Andohanimandroseza
                   </Typography>
                 </Box>
                 <CardActions>
@@ -82,10 +80,12 @@ function ProfilePublicUser() {
                 </CardActions>
               </CardContent>
               <Divider />
-              <CardContent sx={{
-                display: "flex",
-                justifyContent: "center",
-              }}>
+              <CardContent
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
                 <img
                   style={{
                     width: "350px",
@@ -112,38 +112,35 @@ function ProfilePublicUser() {
                       <TextField
                         fullWidth
                         helperText="Please specify the first name"
-                        label="First name"
-                        name="firstName"
-                        required
-                        value="RAPA"
+                        label="Nom"
+                        name="Nom"
+                        value="ANDRIAMILAMINA"
                         variant="outlined"
                       />
                     </Grid>
                     <Grid item md={6} xs={12}>
                       <TextField
                         fullWidth
-                        label="Last name"
-                        name="lastName"
-                        required
-                        value="Patrick"
+                        label="Prénom"
+                        name="Prenom"
+                        value="Tendriarivelo"
                         variant="outlined"
                       />
                     </Grid>
                     <Grid item md={6} xs={12}>
                       <TextField
                         fullWidth
-                        label="Email Address"
-                        name="email"
-                        required
-                        value="rapa@gmail.com"
+                        label="Email"
+                        name="Email"
+                        value="tandriamilamina@gmail.com"
                         variant="outlined"
                       />
                     </Grid>
                     <Grid item md={6} xs={12}>
                       <TextField
                         fullWidth
-                        label="Phone Number"
-                        name="phone"
+                        label="Numéro téléphone"
+                        name="Numéro téléphone"
                         type="number"
                         value="0346655577"
                         variant="outlined"
@@ -152,20 +149,18 @@ function ProfilePublicUser() {
                     <Grid item md={6} xs={12}>
                       <TextField
                         fullWidth
-                        label="Country"
-                        name="country"
-                        required
-                        value="Ambatoroka"
+                        label="Lot"
+                        name="Lot"
+                        value="Andohanimandroseza"
                         variant="outlined"
                       />
                     </Grid>
                     <Grid item md={6} xs={12}>
                       <TextField
                         fullWidth
-                        label="Select State"
-                        name="state"
-                        required
-                        value="Gadralava"
+                        label="Profession"
+                        name="Profession"
+                        value="Etudiant"
                         variant="outlined"
                       ></TextField>
                     </Grid>

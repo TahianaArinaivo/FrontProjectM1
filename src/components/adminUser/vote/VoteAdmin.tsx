@@ -2,16 +2,36 @@ import {
   Box,
   Button,
   FormControl,
+  IconButton,
   Input,
   InputLabel,
   MenuItem,
+  Modal,
   Select,
   TextField,
   Typography,
 } from "@mui/material";
 import React from "react";
+import PollIcon from "@mui/icons-material/Poll";
+import VoteResult from "./VoteResult";
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "60%",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 export default function VoteAdmin() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const Candidats = [
     {
       profile: "/user.png",
@@ -143,12 +163,30 @@ export default function VoteAdmin() {
             flexDirection: "column",
           }}
         >
-          <Typography
-            variant="h5"
-            sx={{ width: "100%", textAlign: "center", marginBottom: "10px" }}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
           >
-            Liste des candidats
-          </Typography>
+            <IconButton onClick={handleOpen} size="large" color="primary">
+              <PollIcon fontSize="inherit" />
+            </IconButton>
+
+            <Modal open={open} onClose={handleClose}>
+              <Box sx={style}>
+                <VoteResult />
+              </Box>
+            </Modal>
+
+            <Typography
+              variant="h5"
+              sx={{ width: "100%", textAlign: "center", marginBottom: "10px" }}
+            >
+              Liste des candidats
+            </Typography>
+          </Box>
+
           <Box sx={{ overflow: "auto" }}>
             {Candidats.map((candidat, i) => (
               <Box

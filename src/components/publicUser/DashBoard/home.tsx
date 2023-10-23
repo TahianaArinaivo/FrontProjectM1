@@ -79,10 +79,9 @@ export default function HomePublicUser() {
   }, []);
 
   const handleSendMessage = () => {
-    signalRService.sendMessage(user, message)
-      .then(() => {
-        // Do something after the message is sent, if needed
-      });
+    signalRService.sendMessage(user, message).then(() => {
+      // Do something after the message is sent, if needed
+    });
   };
 
   return (
@@ -102,7 +101,11 @@ export default function HomePublicUser() {
 
       <Grid container>
         <Grid item md={10} xs={12}>
-          <FormControl fullWidth sx={{ mb: "3rem", maxWidth: "50%" }}>
+          <FormControl
+            fullWidth
+            variant="filled"
+            sx={{ mb: "3rem", maxWidth: "50%" }}
+          >
             <InputLabel id="demo-simple-select-label">
               Type de demande
             </InputLabel>
